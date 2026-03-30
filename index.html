@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alfred Shingai | Data Analyst</title>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(255,255,255,0.05);
+      --text: #e5e7eb;
+      --accent: #22c55e;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #020617, #0f172a);
+      color: var(--text);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1 { font-size: 48px; }
+    h2 { font-size: 32px; }
+    h3 { font-size: 22px; }
+
+    p {
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .tagline {
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .buttons a {
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: var(--accent);
+      color: black;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      transform: translateY(-3px);
+    }
+
+    .trust-bar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .kpi {
+      font-size: 26px;
+      color: var(--accent);
+      margin-top: 10px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Turning Data Into Business Decisions</h1>
+
+    <p class="tagline">
+      Data Analyst skilled in Excel, Python, SQL, and Power BI.
+    </p>
+
+    <p>
+      I build end-to-end analytics and machine learning projects — from messy raw data to actionable insights.
+    </p>
+
+    <div class="buttons">
+      <a href="assets/cv/alfred-shingai-cv.pdf" target="_blank">Download CV</a>
+      <a href="https://github.com/alfredshingai" target="_blank">View GitHub</a>
+      <a href="#contact">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div>✔ 3+ End-to-End Projects</div>
+    <div>✔ Machine Learning + Analytics</div>
+    <div>✔ Excel, Python, SQL, Power BI</div>
+    <div>✔ Real Business Insights</div>
+  </section>
+
+  <!-- FLAGSHIP PROJECT -->
+  <section>
+    <h2>Bank Customer Churn Prediction</h2>
+
+    <div class="card">
+      <img src="images/model_fig5_evaluation.png" alt="Churn Project">
+
+      <p><strong>Problem:</strong> The bank lacked visibility into which customers were likely to churn.</p>
+
+      <p><strong>Approach:</strong></p>
+      <ul>
+        <li>Cleaned and merged 10,000+ records</li>
+        <li>Performed exploratory data analysis</li>
+        <li>Engineered features</li>
+        <li>Built ML models (Logistic Regression, Random Forest, Gradient Boosting)</li>
+      </ul>
+
+      <p><strong>Result:</strong> AUC-ROC of 0.868</p>
+
+      <p><strong>Insight:</strong> Churn driven by age, inactivity, and product usage.</p>
+
+      <p><strong>Impact:</strong> Enables targeted retention strategies.</p>
+
+      <div class="kpi">+0.868 AUC Score</div>
+
+      <div class="buttons">
+        <a href="https://github.com/alfredshingai/bank-churn-prediction" target="_blank">View Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PROJECTS -->
+  <section>
+    <h2>Other Projects</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Bike Sales Analysis</h3>
+        <p>
+          Analyzed 1,000 customer records using Excel (data cleaning, pivot tables, and KPI design) to uncover key business insights.
+Identified high-income, middle-aged professionals as the highest-value customer segment.
+Found the Pacific region leads with a ~59% conversion rate, highlighting a strong market opportunity.
+Developed an interactive dashboard to track customer segments and regional performance.
+Insights support targeted marketing strategies to improve conversion rates and overall revenue efficiency.
+        </p>
+        <a href="https://github.com/alfredshingai/Bike_Sales_Analysis_Portfolio">View Project</a>
+      </div>
+
+      <div class="card">
+        <h3>CocaCola USA Retailer Analysis</h3>
+        <p>
+          Analyzed Coca-Cola USA retailer sales data using Excel (data cleaning, pivot tables, and KPI development) to uncover trends in revenue, profitability, and regional performance.
+Evaluated sales performance across products, regions, and time to identify key growth drivers and underperforming areas.
+Discovered clear regional and product-level variations, highlighting opportunities for optimizing distribution and sales strategy.
+Built an interactive dashboard to track sales metrics, retailer performance, and trends over time.
+Insights support data-driven decision-making to improve sales performance, product focus, and regional strategy.
+        </p>
+        <a href="https://github.com/alfredshingai/CocaCola_USA_Retailer_Analysis">View Project</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">Excel (Dashboards, Pivot Tables)</div>
+      <div class="card">Power BI (DAX, KPIs)</div>
+      <div class="card">SQL (Data Analysis)</div>
+      <div class="card">Python (Pandas, ML)</div>
+    </div>
+  </section>
+
+  <!-- CURRENTLY LEARNING -->
+  <section>
+    <h2>Currently Learning</h2>
+    <ul>
+      <li>Advanced SQL (Joins, Optimization)</li>
+      <li>Power BI (DAX, Data Modeling)</li>
+      <li>Machine Learning Improvement</li>
+    </ul>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About</h2>
+    <p>
+      I am a Data Analyst focused on solving real-world business problems using data.
+      With a background in Applied Statistics, I transform raw data into meaningful insights.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Let’s Work Together</h2>
+    <p>I’m currently seeking opportunities as a Data Analyst.</p>
+
+    <div class="buttons">
+      <a href="mailto:tinonetsanaa@gmail.com">Email Me</a>
+      <a href="assets/cv/alfred-shingai-cv.pdf" target="_blank">Download CV</a>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
