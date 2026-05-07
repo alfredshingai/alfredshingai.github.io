@@ -20,7 +20,9 @@
 <nav>
   
    <div class="nav-logo">
-    <img src="/images/personal_logo.png" alt="Personal logo">
+     <a href="index.html" class="logo-link">
+       <img src="/images/personal_logo.png" alt="Personal logo">
+     </a> 
   </div>
 
   
@@ -31,6 +33,10 @@
     <!--li><a href="#certificates">Certificates</a></li>
     <li><a href="#experience">Experience</a></li-->
     <li><a href="#contact">Contact</a></li>
+
+    <li class="nav-theme-toggle">
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </li>
   </ul>
 </nav>
 
@@ -210,7 +216,7 @@
 
 <section class="page-section" id="contact">
   <div class="contact-box reveal">
-    <h2 class="contact-title">Let's Work Together </h2>
+    <h2 class="contact-title"><span class="cyan">Let's Work Together</span></h2>
     <p class="contact-sub">Open to remote and in-office data analyst roles.</p>
     <div class="social-links">
       <a href="mailto:tinonetsanaa@gmail.com" class="social-link"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Email</a>
@@ -236,6 +242,24 @@
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70); });
   },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+<script>
+const toggle = document.getElementById('theme-toggle');
+const html = document.documentElement;  // Targets :root
+const currentTheme = localStorage.getItem('theme') || 'dark';  // Default dark
+
+if (currentTheme === 'light') {
+  html.classList.add('light-mode');
+  toggle.textContent = '☀️';
+}
+
+toggle.addEventListener('click', () => {
+  html.classList.toggle('light-mode');
+  const isLight = html.classList.contains('light-mode');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  toggle.textContent = isLight ? '☀️' : '🌙';
+});
 </script>
 
 </body>
