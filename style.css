@@ -29,6 +29,10 @@
   --bg-primary:#f8fafc;
   --text-primary:#0f172a;
   --border-primary:#d0d7e2;
+  --surface:#ffffff;
+  --surface2:#eef4f8;
+  --muted:#537083;
+  --light:#365466;
   --cyan:#0891b2;
   --green:#10B981;
   --cyan-dim:rgba(8,145,178,0.08);
@@ -206,7 +210,7 @@ nav{
   content:'';
   width:6px;
   height:6px;
-  background:var(--blue);
+  background:var(--green);
   border-radius:50%;
   animation:pulse 2s infinite
 }
@@ -491,6 +495,14 @@ nav{
   gap:10px;
   color:var(--green)
 }
+.proj-link:focus-visible,
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.social-link:focus-visible,
+#theme-toggle:focus-visible{
+  outline:2px solid var(--green);
+  outline-offset:3px
+}
 .certs-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -676,4 +688,16 @@ footer{
   .exp-item{grid-template-columns:1fr;gap:4px}
   .contact-box{padding:32px 20px}
   footer{padding:20px 24px}
+}
+@media(max-width:560px){
+  .buttons{flex-direction:column;align-items:stretch}
+  .buttons a{text-align:center}
+  .hero-stats{gap:24px}
+  .stat-label{max-width:180px}
+  .proj-body{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:0.01ms!important}
+  .reveal{opacity:1;transform:none}
 }
