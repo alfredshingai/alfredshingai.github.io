@@ -21,19 +21,19 @@
 }
 
 .light-mode{
-  --bg:#f8fafc;
+  --bg:#FFFCF8;
   --surface:#ffffff;
-  --surface2:#eef4f8;
-  --border:#d0d7e2;
-  --cyan:#0891b2;
-  --green:#059669;
-  --cyan-dim:rgba(8,145,178,0.08);
-  --green-dim:rgba(5,150,105,0.08);
-  --text:#0f172a;
-  --muted:#537083;
-  --light:#365466;
-  --nav-bg:rgba(248,250,252,0.85);
-  --shadow:rgba(8,145,178,0.15);
+  --surface2:#F8F5F0;
+  --border:#E8E0D6;
+  --cyan:#0E7490;
+  --green:#047857;
+  --cyan-dim:rgba(14,116,144,0.06);
+  --green-dim:rgba(4,120,87,0.06);
+  --text:#1A1A1A;
+  --muted:#6B6B6B;
+  --light:#2D2D2D;
+  --nav-bg:rgba(255,252,248,0.92);
+  --shadow:rgba(0,0,0,0.06);
 }
 
 html{scroll-behavior:smooth}
@@ -899,6 +899,249 @@ body.has-custom-cursor a, body.has-custom-cursor button{cursor:none}
 .footer-links a{color:var(--muted);text-decoration:none}
 .footer-links a:hover{color:var(--cyan)}
 
+/* ---------- zachi.dev editorial inspiration ---------- */
+.page-section.narrow{
+  max-width:720px;
+  padding:100px 24px;
+}
+.serif{
+  font-family:'Instrument Serif', Georgia, serif;
+  font-weight:400;
+}
+.section-lead{
+  color:var(--light);
+  font-size:15px;
+  line-height:1.7;
+  margin-top:-28px;
+  margin-bottom:48px;
+  font-weight:300;
+}
+.editorial-divider{
+  text-align:center;
+  font-family:'Instrument Serif', serif;
+  font-size:24px;
+  color:var(--muted);
+  padding:24px 0;
+  letter-spacing:8px;
+}
+/* Hero zachi style */
+.zachi-hero{
+  grid-template-columns:1fr 380px;
+  gap:60px;
+}
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:16px;
+}
+.hero-headline{
+  font-family:'Instrument Serif', Georgia, serif;
+  font-size:clamp(44px,6vw,78px);
+  line-height:0.9;
+  letter-spacing:-2px;
+  font-weight:400;
+  margin-bottom:20px;
+}
+.headline-italic{
+  font-style:italic;
+  font-weight:400;
+  color:var(--light);
+}
+.hero-sub{
+  font-size:16px;
+  color:var(--light);
+  line-height:1.7;
+  font-weight:300;
+  margin-bottom:24px;
+  max-width:560px;
+}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.zachi-stats{
+  max-width:1100px;
+  margin:40px auto 0;
+  display:flex;
+  gap:36px;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.hero-visual .photo-caption{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:12px;
+  text-align:center;
+}
+.nav-left .nav-name{
+  font-family:'Instrument Serif', serif;
+  font-size:18px;
+  color:var(--text);
+  text-decoration:none;
+  letter-spacing:-0.5px;
+}
+.nav-left .nav-name span{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:400;
+  letter-spacing:0.5px;
+}
+.nav-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+.nav-center .logo-link img{height:32px}
+.nav-email{
+  background:var(--text);
+  color:var(--bg) !important;
+  padding:8px 14px;
+  border-radius:100px;
+  font-size:11px !important;
+  letter-spacing:0.5px !important;
+}
+.nav-email::after{display:none !important}
+.nav-email:hover{background:var(--cyan) !important;color:#020810 !important}
+
+/* Work stack — single column editorial like zachi.dev */
+.work-stack{
+  display:flex;
+  flex-direction:column;
+  gap:72px;
+}
+.work-item{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding-bottom:72px;
+  border-bottom:1px solid var(--border);
+}
+.work-item:last-child{border-bottom:none;padding-bottom:0}
+.work-item.featured{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+  margin:0 -24px;
+}
+.work-meta{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.work-title{
+  font-family:'Instrument Serif', serif;
+  font-size:clamp(22px,3vw,30px);
+  line-height:1.1;
+  letter-spacing:-0.5px;
+  margin:0;
+}
+.work-subtitle{
+  font-family:'Instrument Serif', serif;
+  font-style:italic;
+  font-size:16px;
+  color:var(--muted);
+  margin-top:-8px;
+}
+.work-img{
+  margin:8px 0;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+.work-img img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition:transform 0.4s;
+}
+.work-item:hover .work-img img{transform:scale(1.02)}
+.work-caption{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  text-align:center;
+  padding:8px;
+  background:var(--surface2);
+  border-top:1px solid var(--border);
+}
+.work-body p{
+  font-size:14px;
+  color:var(--light);
+  line-height:1.7;
+  margin-bottom:12px;
+  font-weight:300;
+}
+.work-body p em{color:var(--text);font-style:italic}
+.work-tools{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+.work-tools span{background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;padding:4px 8px;border-radius:4px}
+.work-links{display:flex;gap:16px;flex-wrap:wrap}
+.work-link{
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  color:var(--cyan);
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:0.5px;
+}
+.work-link.primary{
+  background:var(--cyan);
+  color:#020810;
+  padding:8px 14px;
+  border-radius:6px;
+}
+.work-link.primary:hover{background:var(--green);color:#020810}
+.work-separator{text-align:center;color:var(--muted);font-family:'Instrument Serif', serif;font-size:20px;margin:-16px 0}
+.more-work{
+  text-align:center;
+  margin-top:48px;
+  padding:32px;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  background:var(--cyan-dim);
+}
+.more-work p{color:var(--light);margin-bottom:12px;font-size:14px}
+
+/* Story — zachi timeline style */
+.story-timeline{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  margin-top:32px;
+}
+.story-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:24px;
+}
+.story-year{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  color:var(--cyan);
+  font-weight:700;
+  letter-spacing:1px;
+  text-align:right;
+  padding-top:4px;
+}
+.story-content h3{font-family:'Instrument Serif', serif;font-size:18px;font-weight:400;margin-bottom:4px}
+.story-role{font-family:'Space Mono',monospace;font-size:11px;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.story-content p{font-size:14px;color:var(--light);line-height:1.7;font-weight:300}
+.story-note{
+  margin-top:48px;
+  padding:16px 20px;
+  border-left:2px solid var(--cyan);
+  background:var(--cyan-dim);
+  font-size:13px;
+  color:var(--light);
+  font-style:italic;
+}
+
 /* ---------- Responsive ---------- */
 
 @media(max-width:900px){
@@ -929,10 +1172,18 @@ body.has-custom-cursor a, body.has-custom-cursor button{cursor:none}
   .hero-right{order:-1}
   .photo-frame{width:200px;height:240px}
   .page-section{padding:56px 24px}
+  .page-section.narrow{padding:56px 24px}
   .projects-grid{grid-template-columns:1fr}
   .project-card.featured{grid-column:span 1}
   .contact-box{padding:32px 20px}
   footer{padding:20px 24px}
+  .zachi-hero{grid-template-columns:1fr;gap:32px}
+  .nav-center{display:none}
+  .nav-left .nav-name span{display:none}
+  .story-row{grid-template-columns:1fr;gap:8px}
+  .story-year{text-align:left}
+  .work-item.featured{margin:0}
+  .hero-headline{font-size:40px}
 }
 @media(max-width:560px){
   .buttons{flex-direction:column;align-items:stretch}

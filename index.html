@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Alfred Shingai is a Data Analyst specializing in Python, Power BI, Excel, machine learning, and data visualization."/>
+  <meta name="description" content="Alfred Shingai is a Data Analyst specializing in Python, Power BI, Excel, machine learning, and data visualization — building StatLab Zim and turning raw data into decisions."/>
   <meta property="og:title" content="Alfred Shingai | Data Analyst"/>
-  <meta property="og:description" content="Portfolio of Alfred Shingai, Data Analyst — Python, Power BI, StatLab Zim."/>
+  <meta property="og:description" content="Portfolio of Alfred Shingai — Python, Power BI, StatLab Zim. I clean, model, and visualize data for real decisions."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://alfredshingai.github.io/images/StatLab_Zim.png"/>
   <meta property="og:url" content="https://alfredshingai.github.io/"/>
@@ -16,7 +16,8 @@
   <title>Alfred Shingai | Data Analyst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- zachi.dev inspiration: editorial serif + clean sans + mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="icon" href="/favicon.ico"/>
   <link rel="stylesheet" href="style.css"/>
 
@@ -39,32 +40,28 @@
 </head>
 <body>
 
-<!-- Modern navigation tools: progress + custom cursor -->
 <div id="scroll-progress" aria-hidden="true"></div>
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
-<div class="scroll-indicator" aria-hidden="true">
-  <span>Scroll</span>
-  <div class="scroll-line"></div>
-</div>
 
 <nav>
-  <div class="nav-logo">
+  <div class="nav-left">
+    <a href="#about" class="nav-name">Alfred Shingai <span>· Data Analyst</span></a>
+  </div>
+  <div class="nav-center">
     <a href="#about" class="logo-link">
       <img src="/images/personal_logo.png" alt="Alfred Shingai logo">
     </a>
   </div>
-
   <div class="nav-right">
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about" data-nav="about">About</a></li>
-      <li><a href="#skills" data-nav="skills">Skills</a></li>
-      <li><a href="#projects" data-nav="projects">Projects</a></li>
-      <li><a href="#experience" data-nav="experience">Experience</a></li>
+      <li><a href="#work" data-nav="work">Work</a></li>
+      <li><a href="#story" data-nav="story">Story</a></li>
       <li><a href="#contact" data-nav="contact">Contact</a></li>
       <li class="nav-theme-toggle">
         <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
       </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
     </ul>
     <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
@@ -72,74 +69,61 @@
   </div>
 </nav>
 
+<!-- Hero — zachi.dev editorial: big serif headline, single column, quirky caption -->
 <header class="hero" id="about">
   <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tags">
-        <span class="hero-tag">Seeking Opportunities as a Data Analyst</span>
-        <span class="hero-tag">Available: Remote or in‑office</span>
-        <span class="hero-tag live">● StatLab Zim Live</span>
-      </div>
-      <h1 class="hero-name">Alfred <br/>Shingai</h1>
-      <div class="hero-title">Data Analyst <span class="hero-title-sub">— Harare, Zimbabwe</span></div>
-      <p class="hero-bio">
-        I’m a data analyst with a strong foundation in <strong>Python, Power BI, and Excel,</strong>
-        focused on turning raw data into actionable insights that support better decision-making.
-        I enjoy working with data to uncover patterns, solve problems,
-        and present findings in a clear and meaningful way.
+  <div class="hero-inner zachi-hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal">Data Analyst · Harare, Zimbabwe</div>
+      <h1 class="hero-headline reveal">
+        All the tables.<br/>
+        <span class="headline-italic">One clear story.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        I'm Alfred. I clean, model, and visualize <strong>complete datasets</strong>: CSVs, databases, dashboards, and statistical tests — from raw export to decision-ready insight.
       </p>
-      <p class="hero-bio">
-        I work across the analytics process—cleaning and transforming data using
-        <strong>Python (Pandas, NumPy),</strong> and building interactive dashboards in
-        <strong>Power BI</strong> using <strong>DAX, Power Query,</strong> and data modeling techniques.
-        In <strong>Excel,</strong> I create structured reports and dashboards using
-        <strong>Pivot Tables, XLOOKUP,</strong> and advanced formulas to communicate insights effectively.
-      </p>
-      <p class="hero-bio">
-        I focus on asking the right questions, simplifying complex data, and delivering insights
-        that are practical and easy to understand. My latest work is <strong>StatLab Zim</strong> — an open-source Streamlit app for descriptive stats, visualizations, and hypothesis testing.
-      </p>
-      <div class="buttons">
-        <a href="assets/cv/alfred-shingai-cv.pdf" target="_blank" rel="noopener" class="btn-primary">Download CV</a>
-        <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-primary btn-live">🚀 Try StatLab Zim</a>
-        <a href="https://github.com/alfredshingai" target="_blank" rel="noopener noreferrer" class="btn-outline">View GitHub</a>
-        <a href="#contact" class="btn-outline">Contact Me</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">6+</div><div class="stat-label">Projects</div></div>
-        <div><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
-        <div><div class="stat-num">BSc</div><div class="stat-label">Final Year Applied Statistics, University of Zimbabwe</div></div>
-        <div><div class="stat-num">19</div><div class="stat-label">Pytest tests in StatLab Zim</div></div>
+      <div class="hero-actions reveal">
+        <a href="#work" class="btn-primary">See the work</a>
+        <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-outline">Try StatLab Zim ↗</a>
       </div>
     </div>
-    <div class="hero-right">
+    <div class="hero-visual reveal">
       <div class="photo-wrap">
         <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
         <div class="photo-corner bl"></div><div class="photo-corner br"></div>
         <div class="photo-frame">
           <img src="/images/personal_logo.png" alt="Alfred Shingai"/>
         </div>
-        <div class="photo-badge">
-          <span class="badge-dot"></span> Available for work
-        </div>
+        <div class="photo-caption">Second coffee, probably. · Harare, 3:42 PM</div>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Python · Power BI · Excel</span>
+        <span class="hero-tag">Seeking Data Analyst roles</span>
+        <span class="hero-tag live">● StatLab Zim Live on Streamlit</span>
       </div>
     </div>
   </div>
+  <div class="hero-stats zachi-stats reveal">
+    <div><div class="stat-num">6+</div><div class="stat-label">Shipped projects</div></div>
+    <div><div class="stat-num">19</div><div class="stat-label">Pytest tests</div></div>
+    <div><div class="stat-num">BSc</div><div class="stat-label">Applied Stats, UZ — Final Year</div></div>
+    <div><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
+  </div>
 </header>
 
-<section class="page-section" id="skills">
-  <h2 class="section-title reveal">What I Work With</h2>
-  <p class="section-subtitle reveal">Tools I use daily to turn raw data into decisions</p>
+<!-- Skills — kept but tighter like zachi.dev tags -->
+<section class="page-section narrow" id="skills">
+  <div class="section-label reveal">Tools I use daily</div>
+  <h2 class="section-title reveal serif">What I work with</h2>
   <div class="skills-block reveal">
     <div class="skill-cat">Data &amp; Querying</div>
     <div class="skills-row">
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/python/22D3EE" alt="" loading="lazy"/>Python</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/pandas/22D3EE" alt="" loading="lazy"/>Pandas</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/numpy/22D3EE" alt="NumPy" loading="lazy"/>NumPy</div>
-      <div class="skill-chip"><img src="https://cdn.simpleicons.org/jupyter/22D3EE" alt="" loading="lazy"/>Jupyter Notebook</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/scipy/22D3EE" alt="" loading="lazy"/>SciPy</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/streamlit/22D3EE" alt="" loading="lazy"/>Streamlit</div>
+      <div class="skill-chip"><img src="https://cdn.simpleicons.org/jupyter/22D3EE" alt="" loading="lazy"/>Jupyter</div>
     </div>
   </div>
   <div class="skills-block reveal">
@@ -148,9 +132,7 @@
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/powerbi/22D3EE" alt="" loading="lazy"/>Power BI</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/microsoftexcel/22D3EE" alt="" loading="lazy"/>Excel</div>
       <div class="skill-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M8 12l4-4 4 4"/></svg>DAX</div>
-      <div class="skill-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Power Query (M)</div>
-      <div class="skill-chip"><img src="https://cdn.simpleicons.org/microsoftexcel/22D3EE" alt="" loading="lazy"/>Pivot Tables</div>
-      <div class="skill-chip"><img src="https://cdn.simpleicons.org/microsoftexcel/22D3EE" alt="" loading="lazy"/>VLOOKUP / XLOOKUP</div>
+      <div class="skill-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Power Query</div>
       <div class="skill-chip"><img src="https://cdn.simpleicons.org/plotly/22D3EE" alt="" loading="lazy"/>Plotly</div>
     </div>
   </div>
@@ -158,7 +140,7 @@
     <div class="skill-cat">Analytics Methods</div>
     <div class="skills-row">
       <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4-4 4 4 4-4 4 4"/><path d="M3 15l4 4 4-4 4 4 4-4"/></svg>Data Cleaning</div>
-      <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Exploratory Data Analysis</div>
+      <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>EDA</div>
       <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Dashboard Design</div>
       <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Data Storytelling</div>
       <div class="skill-chip"><svg class="green-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Hypothesis Testing</div>
@@ -166,142 +148,161 @@
   </div>
 </section>
 
-<section class="page-section" id="projects">
+<!-- zachi.dev style divider -->
+<div class="editorial-divider reveal">§</div>
+
+<!-- Work — single-column editorial stack, not grid (zachi.dev inspiration) -->
+<section class="page-section narrow" id="work">
   <div class="section-label reveal">Selected work</div>
-  <h2 class="section-title reveal">Featured Projects</h2>
-  <p class="section-subtitle reveal">Not just a list — each project is a case study with methods, visuals, and insights.</p>
-  <div class="projects-grid">
+  <h2 class="section-title reveal serif">Products, analysis, and tools.</h2>
+  <p class="section-lead reveal">Everything here is <strong>live, documented, or open source</strong> — and all of it was cleaned, modeled, and shipped by me alone.</p>
 
-    <article class="project-card featured reveal" data-cursor="View Live">
-      <div class="proj-img-wrap">
-        <img class="proj-img tall" src="images/StatLab_Zim.png" alt="StatLab Zim Streamlit app with statistical analysis" loading="lazy">
-        <div class="proj-overlay">
-          <span class="proj-overlay-text">🚀 Live on Streamlit Cloud</span>
+  <div class="work-stack">
+
+    <!-- StatLab Zim — flagship -->
+    <article class="work-item featured reveal" data-cursor="Live App">
+      <div class="work-meta">2025 · Streamlit · Open source, MIT</div>
+      <h3 class="work-title serif">StatLab Zim</h3>
+      <p class="work-subtitle">An interactive statistics lab — from upload to insight.</p>
+      <div class="work-img">
+        <img src="images/StatLab_Zim.png" alt="StatLab Zim Streamlit app" loading="lazy">
+        <div class="work-caption">Full app: CSV upload → quality check → descriptives → 6 charts → 5 tests → export</div>
+      </div>
+      <div class="work-body">
+        <p>StatLab Zim is my attempt to make introductory statistics <em>usable</em>. No SPSS, no syntax — just a CSV. It handles messy real-world files: missing cells, duplicate rows, mixed types. You get a 13-metric numeric summary (mean, median, IQR, skew, kurtosis, CV), categorical frequency tables, 6 interactive Plotly charts (histogram, boxplot, bar, scatter, line for dates, heatmap), and 5 tests with plain-language decisions (Pearson, Spearman, linear regression with trendline, Welch t-test, chi-square).</p>
+        <p>Built solo in Python: pandas, SciPy, Plotly, Streamlit. 19 pytest tests, graceful empty-state handling, CSV/PNG exports via kaleido. The hardest part wasn’t the stats — it was the <em>empty file with only a header</em> edge case.</p>
+        <div class="work-tools"><span>Streamlit</span><span>Pandas</span><span>SciPy</span><span>Plotly</span><span>Pytest</span><span>Kaleido</span></div>
+        <div class="work-links">
+          <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener noreferrer" class="work-link primary">statlab-zim.streamlit.app ↗</a>
+          <a href="https://github.com/alfredshingai/statlab-zim" target="_blank" rel="noopener noreferrer" class="work-link">GitHub →</a>
         </div>
       </div>
-      <div class="proj-body">
-        <span class="proj-tag">⭐ Featured · Streamlit · Python · Statistics</span>
-        <h3 class="proj-title">StatLab Zim — Interactive Statistical Analysis</h3>
-        <p class="proj-desc">Designed and shipped <strong>StatLab Zim</strong>, an open-source Streamlit app used to teach and apply statistics. Handles CSV uploads, data-quality profiling, 13-metric descriptive summaries, 6 interactive Plotly visualizations, and 5 hypothesis tests (Pearson, Spearman, linear regression, t-test, chi-square) with plain-language interpretations. Includes CSV/PNG exports, 19 pytest tests, and polished UX with spinners, empty-states, and help tooltips. Deployed on Streamlit Cloud.</p>
-        <div class="proj-tools"><span class="tool-tag">Streamlit</span><span class="tool-tag">Pandas</span><span class="tool-tag">SciPy</span><span class="tool-tag">Plotly</span><span class="tool-tag">Pytest</span><span class="tool-tag">Kaleido</span></div>
-        <div class="proj-links">
-          <a href="https://statlab-zim.streamlit.app" class="proj-link primary" target="_blank" rel="noopener noreferrer">Try Live App <span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/alfredshingai/statlab-zim" class="proj-link" target="_blank" rel="noopener noreferrer">View Code <span aria-hidden="true">→</span></a>
-        </div>
+    </article>
+
+    <div class="work-separator">—</div>
+
+    <article class="work-item reveal" data-cursor="Case Study">
+      <div class="work-meta">Excel · Python · Power BI</div>
+      <h3 class="work-title serif">Bike Sales Analysis</h3>
+      <p class="work-subtitle">1,000 customers. One clear segment.</p>
+      <div class="work-img">
+        <img src="images/Bike_Sales_Dashboard.png" alt="Bike sales dashboard" loading="lazy">
+      </div>
+      <div class="work-body">
+        <p>Analyzed 1,000 records to find who actually buys. High-income, middle-aged professionals converted at ~59% in the Pacific — not the largest segment, but the most valuable. The dashboard is built to answer a manager’s question in 10 seconds, not 10 minutes.</p>
+        <div class="work-tools"><span>Python</span><span>Pandas</span><span>Excel</span><span>Power BI</span><span>DAX</span></div>
+        <a href="https://github.com/alfredshingai/Bike_Sales_Analysis_Portfolio" class="work-link" target="_blank" rel="noopener noreferrer">View case study →</a>
       </div>
     </article>
 
-    <article class="project-card featured reveal" data-cursor="Case Study">
-      <div class="proj-img-wrap">
-        <img class="proj-img tall" src="images/Bike_Sales_Dashboard.png" alt="Bike sales dashboard showing customer and regional performance" loading="lazy">
+    <article class="work-item reveal" data-cursor="ML">
+      <div class="work-meta">Python · Machine learning</div>
+      <h3 class="work-title serif">Bank Customer Churn Prediction</h3>
+      <p class="work-subtitle">AUC 0.868. But the insight is cheaper than the model.</p>
+      <div class="work-img">
+        <img src="images/Bank_Customer_Churn.png" alt="Bank churn analysis" loading="lazy">
       </div>
-      <div class="proj-body">
-        <span class="proj-tag">Excel · Python · Power BI</span>
-        <h3 class="proj-title">Bike Sales Analysis</h3>
-        <p class="proj-desc">Analyzed 1,000 customer records to identify high-value segments and regional opportunities. The dashboard found that high-income, middle-aged professionals were the strongest customer segment and that the Pacific region led with an approximately 59% conversion rate.</p>
-        <div class="proj-tools"><span class="tool-tag">Python</span><span class="tool-tag">Pandas</span><span class="tool-tag">Excel</span><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span></div>
-        <a href="https://github.com/alfredshingai/Bike_Sales_Analysis_Portfolio" class="proj-link" target="_blank" rel="noopener noreferrer">View case study <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
-    <article class="project-card reveal" data-cursor="Case Study">
-      <div class="proj-img-wrap">
-        <img class="proj-img" src="images/Bank_Customer_Churn.png" alt="Bank customer churn analysis visualisation" loading="lazy">
-      </div>
-      <div class="proj-body">
-        <span class="proj-tag">Python · Pandas · Machine learning</span>
-        <h3 class="proj-title">Bank Customer Churn Prediction</h3>
-        <p class="proj-desc">Built an end-to-end churn prediction pipeline with exploratory analysis, feature engineering, and gradient boosting. The model achieved an AUC of 0.868, helping identify customers most at risk of leaving.</p>
-        <div class="proj-tools"><span class="tool-tag">Python</span><span class="tool-tag">Data cleaning</span><span class="tool-tag">EDA</span><span class="tool-tag">Gradient boosting</span></div>
-        <a href="https://github.com/alfredshingai/bank-churn-prediction" class="proj-link" target="_blank" rel="noopener noreferrer">View case study <span aria-hidden="true">→</span></a>
+      <div class="work-body">
+        <p>End-to-end pipeline: EDA → feature engineering → gradient boosting. The model finds at-risk customers, but the EDA finds <em>why</em> — tenure, balance, and activity patterns that a branch manager can act on tomorrow.</p>
+        <div class="work-tools"><span>Data cleaning</span><span>EDA</span><span>Gradient boosting</span></div>
+        <a href="https://github.com/alfredshingai/bank-churn-prediction" class="work-link" target="_blank" rel="noopener noreferrer">View case study →</a>
       </div>
     </article>
-    <article class="project-card reveal" data-cursor="Dashboard">
-      <div class="proj-img-wrap">
-        <img class="proj-img" src="images/Flight_Status_Dashboard.png" alt="Flight status dashboard comparing airline performance" loading="lazy">
+
+    <article class="work-item reveal" data-cursor="Dashboard">
+      <div class="work-meta">Power BI · DAX · Power Query</div>
+      <h3 class="work-title serif">Flight Status Dashboard</h3>
+      <div class="work-img">
+        <img src="images/Flight_Status_Dashboard.png" alt="Flight status dashboard" loading="lazy">
       </div>
-      <div class="proj-body">
-        <span class="proj-tag">Power BI · DAX · Power Query</span>
-        <h3 class="proj-title">Flight Status Dashboard</h3>
-        <p class="proj-desc">Created an interactive dashboard for comparing U.S. airline and airport performance across delays, cancellations, and on-time rates, making operational patterns easy to explore.</p>
-        <div class="proj-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data cleaning</span></div>
-        <a href="https://github.com/alfredshingai/Flight_Status_Dashboard" class="proj-link" target="_blank" rel="noopener noreferrer">View case study <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
-    <article class="project-card reveal" data-cursor="Report">
-      <div class="proj-img-wrap">
-        <img class="proj-img" src="images/CocaCola USA Retailer Analysis.png" alt="Coca-Cola USA retailer analysis dashboard" loading="lazy">
-      </div>
-      <div class="proj-body">
-        <span class="proj-tag">Excel · Power Query</span>
-        <h3 class="proj-title">Coca-Cola USA Retailer Analysis</h3>
-        <p class="proj-desc">Analyzed 9,648 retailer invoice records from 2022–2023 to uncover revenue trends, brand profitability, regional distribution, and retailer efficiency.</p>
-        <div class="proj-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Data cleaning</span><span class="tool-tag">Power Query</span></div>
-        <a href="https://github.com/alfredshingai/CocaCola_USA_Retailer_Analysis" class="proj-link" target="_blank" rel="noopener noreferrer">View case study <span aria-hidden="true">→</span></a>
+      <div class="work-body">
+        <p>U.S. airline and airport performance across delays, cancellations, on-time rates. The stakeholder question was simple: “Which airline should we rebook on?” The answer needed one filter, not five.</p>
+        <div class="work-tools"><span>Power BI</span><span>DAX</span><span>Power Query</span></div>
+        <a href="https://github.com/alfredshingai/Flight_Status_Dashboard" class="work-link" target="_blank" rel="noopener noreferrer">View case study →</a>
       </div>
     </article>
-    <article class="project-card reveal" data-cursor="Dashboard">
-      <div class="proj-img-wrap">
-        <img class="proj-img" src="images/Kevin_Cookie_Company_Sales_Dashboard.png" alt="Kevin Cookie Company sales dashboard" loading="lazy">
+
+    <article class="work-item reveal" data-cursor="Report">
+      <div class="work-meta">Excel · Power Query · 9,648 records</div>
+      <h3 class="work-title serif">Coca-Cola USA Retailer Analysis</h3>
+      <div class="work-img">
+        <img src="images/CocaCola USA Retailer Analysis.png" alt="Coca-Cola retailer analysis" loading="lazy">
       </div>
-      <div class="proj-body">
-        <span class="proj-tag">Power BI · Python · Excel</span>
-        <h3 class="proj-title">Kevin Cookie Company Sales Analysis</h3>
-        <p class="proj-desc">Prototyped sales KPIs in pandas, implemented them in Excel, and delivered an interactive Power BI dashboard exploring 2020 performance across international markets.</p>
-        <div class="proj-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">SUMIFS</span><span class="tool-tag">Pandas</span></div>
-        <a href="https://github.com/alfredshingai/Kevin-Cookie-Company-Sales-Analysis-2020" class="proj-link" target="_blank" rel="noopener noreferrer">View case study <span aria-hidden="true">→</span></a>
+      <div class="work-body">
+        <p>2022–2023 retailer invoices: revenue trends, brand profitability, regional distribution. The story wasn’t “sales went up” — it was <em>which retailer type moved which pack size where</em>.</p>
+        <div class="work-tools"><span>Excel</span><span>Power Query</span><span>Data cleaning</span></div>
+        <a href="https://github.com/alfredshingai/CocaCola_USA_Retailer_Analysis" class="work-link" target="_blank" rel="noopener noreferrer">View case study →</a>
       </div>
     </article>
+
+    <article class="work-item reveal" data-cursor="Dashboard">
+      <div class="work-meta">Power BI · Python · Excel · 2020</div>
+      <h3 class="work-title serif">Kevin Cookie Company</h3>
+      <div class="work-img">
+        <img src="images/Kevin_Cookie_Company_Sales_Dashboard.png" alt="Kevin Cookie dashboard" loading="lazy">
+      </div>
+      <div class="work-body">
+        <p>Prototyped KPIs in pandas, implemented in Excel, delivered in Power BI. 2020 international performance — when “international” mostly meant “how did we cope with 2020?”</p>
+        <div class="work-tools"><span>SUMIFS</span><span>Pandas</span><span>DAX</span></div>
+        <a href="https://github.com/alfredshingai/Kevin-Cookie-Company-Sales-Analysis-2020" class="work-link" target="_blank" rel="noopener noreferrer">View case study →</a>
+      </div>
+    </article>
+
   </div>
-  <div class="projects-cta reveal">
-    <p>Want to see the process behind each dashboard?</p>
-    <a href="https://github.com/alfredshingai" class="btn-outline" target="_blank" rel="noopener noreferrer">Explore all repositories <span aria-hidden="true">→</span></a>
+
+  <div class="more-work reveal">
+    <p>Want the notebooks behind the dashboards?</p>
+    <a href="https://github.com/alfredshingai" target="_blank" rel="noopener noreferrer" class="btn-outline">Explore all repositories →</a>
   </div>
 </section>
 
-<section class="page-section" id="experience">
-  <div class="section-label reveal">Journey</div>
-  <h2 class="section-title reveal">Experience & Education</h2>
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-year">2024 — Present</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Applied Statistics — University of Zimbabwe</h3>
-        <p class="timeline-role">BSc Final Year</p>
-        <p>Focusing on statistical inference, regression, experimental design, and data storytelling. Built StatLab Zim as capstone to make hypothesis testing accessible for fellow students.</p>
-        <div class="timeline-tags"><span>Regression</span><span>Hypothesis Testing</span><span>R / Python</span></div>
+<div class="editorial-divider reveal">§</div>
+
+<!-- Story — zachi.dev style: "Career changer, yes. Beginner, no." -->
+<section class="page-section narrow" id="story">
+  <div class="section-label reveal">Story</div>
+  <h2 class="section-title reveal serif">Career changer, yes.<br/>Beginner, no.</h2>
+  <p class="section-lead reveal">I ran spreadsheets long before I ran models.</p>
+
+  <div class="story-timeline">
+    <div class="story-row reveal">
+      <div class="story-year">2024 — Present</div>
+      <div class="story-content">
+        <h3>Applied Statistics, University of Zimbabwe</h3>
+        <p class="story-role">BSc Final Year</p>
+        <p>Statistical inference, regression, experimental design. Where I learned that a p-value without context is just a number — and that a good chart answers the question before it’s asked. StatLab Zim started as a study aid for classmates.</p>
       </div>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-year">2023 — 2024</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Data Analyst Internships — 2 Placements</h3>
-        <p class="timeline-role">Power BI • Excel • Python</p>
-        <p>Cleaned and modeled retail and financial datasets, built DAX measures and Power Query pipelines, and delivered dashboards that reduced manual reporting time.</p>
-        <div class="timeline-tags"><span>DAX</span><span>Power Query</span><span>Stakeholder Reports</span></div>
+    <div class="story-row reveal">
+      <div class="story-year">2023 — 2024</div>
+      <div class="story-content">
+        <h3>Data Analyst Internships — 2 placements</h3>
+        <p class="story-role">Power BI · Excel · Python</p>
+        <p>Sole analyst on retail and finance data: cleaned 10k+ rows, modeled with DAX and Power Query, shipped dashboards that replaced weekly manual reporting. Learned how systems with real stakeholders work — and how they fail.</p>
       </div>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-year">2023</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Independent Projects</h3>
-        <p class="timeline-role">5+ Case Studies</p>
-        <p>From bike sales segmentation to churn prediction (AUC 0.868), each project follows a full cycle: question → cleaning → EDA → modeling → visualization → insight.</p>
-        <div class="timeline-tags"><span>Churn Prediction</span><span>Retail Analytics</span><span>Flight Ops</span></div>
+    <div class="story-row reveal">
+      <div class="story-year">Since 2023</div>
+      <div class="story-content">
+        <h3>Independent — alfredshingai.github.io</h3>
+        <p class="story-role">Everything under Selected work, shipped solo</p>
+        <p>Five case studies, one Streamlit app, hundreds of commits. The tools change; the job stays the same: ask the right question, keep the data honest, and make the insight obvious.</p>
       </div>
     </div>
   </div>
+
+  <div class="story-note reveal">
+    <p>Built as an analyst first, designer second. <em>Harare, Zimbabwe — available remote or in-office.</em></p>
+  </div>
 </section>
 
-<section class="page-section" id="contact">
+<section class="page-section narrow" id="contact">
   <div class="contact-box reveal">
-    <h2 class="contact-title"><span class="cyan">Let's Work Together</span></h2>
-    <p class="contact-sub">Open to remote and in-office data analyst roles. I’ll respond within 24 hours.</p>
+    <h2 class="contact-title serif"><span class="cyan">Let's build something</span></h2>
+    <p class="contact-sub">Open to interesting problems, collaborations, and conversations about data, dashboards, or the next StatLab feature.</p>
     <div class="contact-actions">
-      <a href="mailto:tinonetsanaa@gmail.com" class="btn-primary">✉️ Email Me</a>
-      <a href="assets/cv/alfred-shingai-cv.pdf" target="_blank" rel="noopener" class="btn-outline">Download CV</a>
+      <a href="mailto:tinonetsanaa@gmail.com" class="btn-primary" data-cursor="Email">Email me</a>
+      <a href="assets/cv/alfred-shingai-cv.pdf" target="_blank" rel="noopener" class="btn-outline" data-cursor="CV">Download CV</a>
     </div>
     <div class="social-links">
       <a href="mailto:tinonetsanaa@gmail.com" class="social-link" data-cursor="Email"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Email</a>
@@ -317,16 +318,13 @@
 
 <footer>
   <div class="footer-inner">
-    <span>© 2026 Alfred Shingai</span>
-    <span class="footer-links">
-      <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener">StatLab Zim ↗</a>
-    </span>
-    <span>alfredshingai.github.io</span>
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span>alfredshingai.github.io · <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener">StatLab Zim ↗</a></span>
   </div>
 </footer>
 
 <script>
-  // Reveal on scroll
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70); });
   },{threshold:0.08});
@@ -334,7 +332,6 @@
 </script>
 
 <script>
-  // Theme toggle
   const toggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
   function syncToggleIcon(){
@@ -361,7 +358,6 @@
 </script>
 
 <script>
-  // Scroll progress bar
   const progress = document.getElementById('scroll-progress');
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
@@ -369,20 +365,21 @@
     progress.style.width = scrolled + '%';
   }, {passive: true});
 
-  // Scroll spy for active nav
   const sections = document.querySelectorAll('section[id], header[id]');
   const navItems = document.querySelectorAll('.nav-links a[data-nav]');
   const spy = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navItems.forEach(a => a.classList.toggle('active', a.dataset.nav === id));
+        const id = entry.target.id === 'about' ? 'work' : entry.target.id;
+        // Map about -> work? Actually hero is about, but nav Work points to #work
+        navItems.forEach(a => a.classList.remove('active'));
+        const target = document.querySelector(`.nav-links a[data-nav="${entry.target.id}"]`) || document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (target) target.classList.add('active');
       }
     });
   }, {rootMargin: '-45% 0px -45% 0px', threshold: 0});
   sections.forEach(s => spy.observe(s));
 
-  // Custom cursor (dot + ring) — disabled on touch / reduced-motion
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
   const isTouch = window.matchMedia('(pointer: coarse)').matches;
@@ -399,10 +396,10 @@
     })();
     document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
     document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
-    const hoverTargets = document.querySelectorAll('a, button, .project-card, .skill-chip, .social-link');
+    const hoverTargets = document.querySelectorAll('a, button, .work-item, .skill-chip, .social-link');
     hoverTargets.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        const label = el.dataset.cursor || el.getAttribute('aria-label') || '';
+        const label = el.dataset.cursor || '';
         if (label) { ring.dataset.label = label; ring.classList.add('has-label'); }
         dot.classList.add('hover'); ring.classList.add('hover');
       });
@@ -411,14 +408,6 @@
   } else {
     if (dot) dot.style.display = 'none';
     if (ring) ring.style.display = 'none';
-  }
-
-  // Hide scroll indicator after first scroll
-  const indicator = document.querySelector('.scroll-indicator');
-  if (indicator) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 120) indicator.classList.add('hidden');
-    }, {passive: true});
   }
 </script>
 
