@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alfredshingai.github.io/sitemap.xml
+Sitemap: https://alfredshingai.dev/sitemap.xml
