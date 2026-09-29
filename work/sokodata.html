@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How I built SokoData: one open API over 22 scattered Zimbabwean data sources — WFP market prices, RBZ rates, ZIMSTAT CPI, climate — with provenance per record."/>
+  <meta property="og:title" content="SokoData — build story"/>
+  <meta property="og:description" content="One clean, documented API over Zimbabwe's scattered open data — markets, economy, climate, and more."/>
+  <meta property="og:type" content="article"/>
+  <title>SokoData — Build Story · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/sokodata.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">SokoData <em>— build story</em></h1>
+  <p class="page-sub reveal">Open market-price intelligence for African food markets: one API over 22 scattered data sources, live at <strong>sokodata.onrender.com</strong>.</p>
+  <div class="page-meta reveal">
+    <span>2026</span><span>Python · FastAPI · Pandas · ETL</span><span>Solo build · MIT</span>
+  </div>
+
+  <div class="prose">
+    <h2>The question</h2>
+    <p>A trader in Bulawayo wants to know what kapenta costs this week. A farmer in Masvingo wants to know if it's worth hauling maize to Harare. An NGO monitoring food security wants a price series they can cite. None of them can get a straight answer — because Zimbabwe's data is scattered.</p>
+    <p>Market prices live in WFP datasets as raw CSVs. Exchange rates live at the RBZ. CPI at ZIMSTAT. Fuel at ZERA. Climate at meteorological services. Each is a different format, a different license, a different level of messiness — and no unified API, no provenance, no product for end users.</p>
+    <blockquote>SokoData is the commons that turns those scattered sources into a clean, documented, queryable product.</blockquote>
+
+    <h2>What I built</h2>
+    <p>One ETL pipeline per dataset, one catalog, one FastAPI service. As of today it serves:</p>
+    <div class="finding"><div class="finding-num">22</div><div><h4>Datasets</h4><p>Markets, economy, climate, demographics, agriculture, health, education, energy, water, transport, mining, governance, trade, labour, environment, poverty, ICT, finance, tourism, aid, gender, geospatial.</p></div></div>
+    <div class="finding"><div class="finding-num">486</div><div><h4>Markets, with coordinates</h4><p>A directory queryable by province, with 31 commodities and per-market coverage counts.</p></div></div>
+    <div class="finding"><div class="finding-num">3</div><div><h4>Live surfaces</h4><p>REST API with interactive docs, a browsable dashboard on GitHub Pages, and a versioned catalog endpoint for discovery.</p></div></div>
+
+    <h2>Decisions worth defending</h2>
+    <div class="decision-list">
+      <div class="decision"><p class="q">Why an API and not a report?</p><p>A report answers one question once. An API answers every question forever — and forces me to keep the data honest, because someone will actually query it.</p></div>
+      <div class="decision"><p class="q">How do you survive Zimbabwe's currency history?</p><p>Every price carries USD and local values with provenance per record. No silently rebased series. If a number changed meaning in 2019 or 2024, the API says so.</p></div>
+      <div class="decision"><p class="q">Why scraping alongside official APIs?</p><p>World Bank and WFP have APIs; RBZ, ZERA and ZIMSTAT mostly don't. Open data means meeting sources where they are — with licensing respected per source (HDX CC BY-IGO, WDI, Open-Meteo, NASA POWER).</p></div>
+    </div>
+
+    <h2>What it looks like</h2>
+    <pre><code>$ curl sokodata.onrender.com/v1/insights/movers?window_days=90
+
+Fish (kapenta) at Marula:   $6.10 → $10.53/kg  (+72%)
+Oil (vegetable) at Gokwe:   $1.70 → $2.74/L    (+61%)</code></pre>
+    <p>One call answers what used to require downloading four CSVs and cleaning them yourself. That's the whole pitch.</p>
+
+    <h2>What it taught me</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Data engineering is analysis at scale.</strong> The cleaning instincts from my BI work — type inference, duplicate handling, provenance — turned out to be exactly what an ETL pipeline needs.</p></div>
+      <div class="lesson"><p><strong>Honest analytics survive reality.</strong> Zimbabwe's currency history breaks naive price series. Designing for that made the product trustworthy.</p></div>
+      <div class="lesson"><p><strong>Ship the boring infrastructure.</strong> A catalog endpoint nobody applauds is what makes 22 datasets discoverable.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Python, FastAPI, pandas, Render, WFP/HDX, World Bank WDI, Open-Meteo, NASA POWER — plus respectful scraping where no API exists.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="who-builds-africa.html"><span class="dir">Next project →</span><br/><span class="t">Who Builds Africa</span></a>
+    <a href="statlab-zim.html"><span class="dir">← Previous</span><br/><span class="t">StatLab Zim</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://sokodata.onrender.com/docs" target="_blank" rel="noopener">Live API ↗</a> · <a href="https://github.com/alfredshingai/SokoData" target="_blank" rel="noopener">Source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

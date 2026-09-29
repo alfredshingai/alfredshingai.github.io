@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bike sales analysis: 1,000 customer records, one clear segment — high-income, middle-aged professionals in the Pacific at ~59% conversion."/>
+  <meta property="og:title" content="Bike Sales Analysis — case study"/>
+  <meta property="og:description" content="1,000 customers. One clear segment. A dashboard that answers in 10 seconds."/>
+  <meta property="og:type" content="article"/>
+  <title>Bike Sales Analysis — Case Study · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/bike-sales.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Bike Sales Analysis</h1>
+  <p class="page-sub reveal">1,000 customers. One clear segment. A dashboard built to answer a manager's question in <strong>10 seconds, not 10 minutes</strong>.</p>
+  <div class="page-meta reveal">
+    <span>Excel · Python · Power BI</span><span>1,000 records</span><span>Case study</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/Bike_Sales_Dashboard.png" alt="Bike sales dashboard">
+      <figcaption>The dashboard: average income per purchase status, commute distance, age brackets, region</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>A bike retailer knows who bought. It doesn't know <strong>who actually buys</strong> — and more usefully, who doesn't. The dataset: 1,000 customer records with income, demographics, commute distance, region, and purchase outcome.</p>
+
+    <h2>The approach</h2>
+    <ol>
+      <li><strong>Clean in Excel, prototype in pandas.</strong> Duplicates removed, "Married"/"Single" normalized, age bands cut in both tools so the numbers could be cross-checked.</li>
+      <li><strong>Segment before you visualize.</strong> Purchase rate by income band, age bracket, commute distance, and region — each pivot answering one question.</li>
+      <li><strong>Build the dashboard around the decision:</strong> who to target, where, with what message.</li>
+    </ol>
+
+    <h2>Findings</h2>
+    <div class="finding"><div class="finding-num">59%</div><div><h4>The Pacific segment converts</h4><p>High-income, middle-aged professionals in the Pacific converted at ~59% — not the largest segment, but the most valuable per customer.</p></div></div>
+    <div class="finding"><div class="finding-num">≠</div><div><h4>Buyers and non-buyers are not opposites</h4><p>The useful difference wasn't demographic extremes — it was commute distance and car ownership interacting with income. Targeting on income alone would have wasted budget.</p></div></div>
+    <div class="finding"><div class="finding-num">10s</div><div><h4>Designed for one question</h4><p>Slicers limited to region, age, commute. Every visual earns its place by answering the targeting question. No decorative charts.</p></div></div>
+
+    <h2>Decisions worth defending</h2>
+    <div class="decision-list">
+      <div class="decision"><p class="q">Why duplicate the cleaning in Excel and pandas?</p><p>Because stakeholders trust Excel and I trust pandas. Cross-checking both caught a normalization discrepancy before it reached the dashboard — and made the deliverable auditable in the stakeholder's own tool.</p></div>
+      <div class="decision"><p class="q">Why so few slicers?</p><p>Every extra slicer is a decision the viewer has to make. The dashboard answers "who do we target" — filters that don't sharpen that answer are deleted.</p></div>
+    </div>
+
+    <h2>What I'd do differently</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>1,000 rows is small.</strong> Segment-level conversion estimates carry wide confidence intervals. I'd report uncertainty next to every percentage now.</p></div>
+      <div class="lesson"><p><strong>Revenue, not just purchase rate.</strong> A buyer's value varies. Next version models purchase value, not just incidence.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Excel (Power Query, pivots), Python (pandas), Power BI (DAX). Repo includes cleaning workbook, notebook, and PBIX.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="flight-status.html"><span class="dir">Next case study →</span><br/><span class="t">Flight Status Dashboard</span></a>
+    <a href="bank-churn.html"><span class="dir">← Previous</span><br/><span class="t">Bank Churn Prediction</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://github.com/alfredshingai/Bike_Sales_Analysis_Portfolio" target="_blank" rel="noopener">Repo on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

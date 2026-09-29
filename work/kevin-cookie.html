@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Kevin Cookie Company sales analysis: KPIs prototyped in pandas, implemented in Excel, delivered in Power BI — 2020 international performance."/>
+  <meta property="og:title" content="Kevin Cookie Company — case study"/>
+  <meta property="og:description" content="Prototyped KPIs in pandas, implemented in Excel, delivered in Power BI."/>
+  <meta property="og:type" content="article"/>
+  <title>Kevin Cookie Company — Case Study · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/kevin-cookie.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Kevin Cookie Company</h1>
+  <p class="page-sub reveal">KPIs prototyped in pandas, implemented in Excel, delivered in Power BI. 2020 international performance — when "international" mostly meant <strong>"how did we cope with 2020?"</strong></p>
+  <div class="page-meta reveal">
+    <span>Power BI · Python · Excel</span><span>2020 sales data</span><span>Case study</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/Kevin_Cookie_Company_Sales_Dashboard.png" alt="Kevin Cookie Company sales dashboard">
+      <figcaption>International revenue, units, and KPI cards across 2020</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>A small exporter's 2020: which markets grew, which collapsed, and which costs moved with them? The dataset — orders, units, revenue, cost per market across the year — is small enough to hold in your head and messy enough to punish assumptions.</p>
+
+    <h2>The approach</h2>
+    <ol>
+      <li><strong>Prototype in pandas.</strong> Revenue, units, margin, and month-over-month KPIs computed first in Python — fast to iterate, impossible to fat-finger the way a 40-step SUMIFS chain can be.</li>
+      <li><strong>Rebuild in Excel.</strong> Same KPIs in SUMIFS/Pivot language so the client could audit every number in their native tool.</li>
+      <li><strong>Deliver in Power BI.</strong> The dashboard is the read-only view; the workbook and notebook are the audit trail.</li>
+    </ol>
+
+    <h2>Findings</h2>
+    <div class="finding"><div class="finding-num">1</div><div><h4>Markets diverged sharply</h4><p>"International" was not one story — a couple of markets grew through 2020 while others fell off a cliff. Aggregate KPIs hid both.</p></div></div>
+    <div class="finding"><div class="finding-num">2</div><div><h4>Cost moved differently than revenue</h4><p>Unit costs spiked in months where revenue dipped — the margin squeeze was a logistics story, not a demand story.</p></div></div>
+    <div class="finding"><div class="finding-num">3</div><div><h4>Three tools, one truth</h4><p>pandas, Excel and Power BI agreed on every KPI — because each was cross-checked against the others. That reconciliation <em>was</em> the quality assurance.</p></div></div>
+
+    <h2>What I'd do differently</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Parameterize the year.</strong> Hardcoded 2020 filters made the refresh story harder than it needed to be.</p></div>
+      <div class="lesson"><p><strong>Ship the reconciliation.</strong> The pandas-vs-Excel check deserves its own page in the write-up — it's the part stakeholders ask about.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Python (pandas), Excel (SUMIFS, pivots), Power BI (DAX). Notebook, workbook, and PBIX in the repo.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="statlab-zim.html"><span class="dir">Back to start →</span><br/><span class="t">StatLab Zim</span></a>
+    <a href="cocacola-retail.html"><span class="dir">← Previous</span><br/><span class="t">Coca-Cola USA Retailer Analysis</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://github.com/alfredshingai/Kevin-Cookie-Company-Sales-Analysis-2020" target="_blank" rel="noopener">Repo on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* Alfred Shingai — shared styles for subpages (work/, blog/, 404).
+   Home-specific styles live in style.css; the design tokens in :root there
+   are the single source of truth for colors. */
+
+/* ---------- Subpage shell ---------- */
+
+.page{ padding:120px 24px 0; max-width:720px; margin:0 auto; position:relative; z-index:1 }
+.page.wide{ max-width:900px }
+
+.page-kicker{
+  font-family:'Space Mono',monospace;
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:14px;
+}
+.page-kicker a{ color:var(--muted); text-decoration:none }
+.page-kicker a:hover{ color:var(--cyan) }
+
+.page-title{
+  font-family:'Instrument Serif', Georgia, serif; font-weight:400;
+  font-size:clamp(34px,5vw,54px); line-height:1.05; letter-spacing:-1.5px;
+  margin-bottom:14px;
+}
+.page-title em{ font-style:italic; color:var(--light) }
+
+.page-sub{
+  font-size:16px; color:var(--light); font-weight:300; line-height:1.7;
+  margin-bottom:28px;
+}
+.page-sub strong{ color:var(--text); font-weight:500 }
+
+.page-meta{
+  font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px;
+  text-transform:uppercase; color:var(--muted);
+  display:flex; gap:18px; flex-wrap:wrap;
+  padding:14px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  margin-bottom:8px;
+}
+
+/* ---------- Prose ---------- */
+
+.prose{ font-size:15px; line-height:1.75; color:var(--light); font-weight:300 }
+.prose p{ margin:18px 0 }
+.prose strong{ color:var(--text); font-weight:500 }
+.prose em{ color:var(--text); font-style:italic }
+.prose a{ color:var(--cyan); text-decoration:none; border-bottom:1px solid rgba(34,211,238,0.35) }
+.prose a:hover{ color:var(--green); border-color:var(--green) }
+.prose ul,.prose ol{ margin:18px 0 18px 22px; display:grid; gap:8px }
+.prose h2{
+  font-family:'Instrument Serif', Georgia, serif; font-weight:400;
+  font-size:26px; letter-spacing:-0.5px; color:var(--text);
+  margin:40px 0 6px;
+}
+.prose h3{
+  font-family:'Space Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--green);
+  margin:32px 0 8px;
+}
+.prose code{
+  font-family:'Space Mono',monospace; font-size:13px;
+  background:var(--surface2); border:1px solid var(--border);
+  padding:1px 6px; border-radius:4px; color:var(--cyan);
+}
+.prose pre{
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:16px 18px; overflow-x:auto; margin:20px 0;
+}
+.prose pre code{ background:none; border:none; padding:0; color:var(--light); font-size:12.5px; line-height:1.6 }
+.prose blockquote{
+  border-left:2px solid var(--cyan); background:var(--cyan-dim);
+  padding:14px 18px; margin:20px 0; font-style:italic; color:var(--light);
+}
+.prose hr{ border:none; border-top:1px solid var(--border); margin:36px auto; width:120px }
+
+.pull-quote{
+  font-family:'Instrument Serif', Georgia, serif; font-style:italic;
+  font-size:22px; line-height:1.4; color:var(--text);
+  border-left:2px solid var(--green); background:var(--green-dim);
+  padding:18px 22px; margin:28px 0; border-radius:0 10px 10px 0;
+}
+
+/* ---------- Case-study blocks ---------- */
+
+.case-figure{ margin:28px 0; border-radius:12px; overflow:hidden; border:1px solid var(--border) }
+.case-figure img{ width:100%; height:auto; display:block }
+.case-figure figcaption{
+  font-family:'Space Mono',monospace; font-size:11px; color:var(--muted);
+  text-align:center; padding:8px 12px; background:var(--surface2); border-top:1px solid var(--border);
+}
+
+.finding{
+  display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start;
+  background:var(--surface); border:1px solid var(--border); border-radius:12px;
+  padding:18px; margin:14px 0;
+}
+.finding-num{
+  font-family:'Instrument Serif', Georgia, serif; font-size:30px; color:var(--cyan); line-height:1;
+}
+.finding h4{ font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px }
+.finding p{ font-size:13.5px; color:var(--light); line-height:1.65; margin:0 }
+
+.decision-list{ display:grid; gap:12px; margin:20px 0 }
+.decision{ border:1px solid var(--border); border-radius:10px; padding:14px 16px; background:var(--surface2) }
+.decision .q{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); margin-bottom:6px }
+.decision p{ font-size:13.5px; color:var(--light); line-height:1.65; margin:0 }
+
+.lesson-grid{ display:grid; gap:12px; margin:20px 0 }
+.lesson{
+  border:1px solid var(--border); border-left:2px solid var(--green);
+  border-radius:0 10px 10px 0; padding:12px 16px; background:var(--green-dim);
+}
+.lesson p{ font-size:13.5px; color:var(--light); line-height:1.65; margin:0 }
+.lesson strong{ color:var(--text) }
+
+/* ---------- Post cards / blog index ---------- */
+
+.post-list{ display:flex; flex-direction:column; gap:20px; margin-top:8px }
+.post-card{
+  display:block; text-decoration:none;
+  background:var(--surface); border:1px solid var(--border); border-radius:14px;
+  padding:24px; transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.post-card:hover{ border-color:rgba(34,211,238,0.4); transform:translateY(-3px); box-shadow:0 14px 36px var(--shadow) }
+.post-card h3{
+  font-family:'Instrument Serif', Georgia, serif; font-weight:400;
+  font-size:22px; letter-spacing:-0.4px; color:var(--text); margin:6px 0 8px;
+}
+.post-card p{ font-size:13.5px; color:var(--light); line-height:1.65; margin:0 }
+.post-tag{
+  font-family:'Space Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--cyan);
+}
+.post-read{
+  font-family:'Space Mono',monospace; font-size:11px; color:var(--green);
+  display:inline-block; margin-top:14px; letter-spacing:1px; text-transform:uppercase;
+}
+.post-card:hover .post-read{ color:var(--cyan) }
+
+/* ---------- Next/prev + footer nav ---------- */
+
+.page-nav{
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:56px 0 0;
+}
+.page-nav a{
+  text-decoration:none; border:1px solid var(--border); border-radius:12px;
+  padding:16px 18px; background:var(--surface); transition:border-color .2s;
+}
+.page-nav a:hover{ border-color:var(--cyan) }
+.page-nav .dir{ font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:6px }
+.page-nav .t{ font-family:'Instrument Serif', Georgia, serif; font-size:17px; color:var(--text) }
+.page-nav a.next{ text-align:right }
+
+/* ---------- 404 ---------- */
+
+.error-code{
+  font-family:'Instrument Serif', Georgia, serif; font-size:clamp(90px,18vw,160px);
+  line-height:1; color:var(--cyan); letter-spacing:-4px;
+}
+.error-box{ text-align:center; padding:80px 0 40px }
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:560px){
+  .page{ padding-top:96px }
+  .page-nav{ grid-template-columns:1fr }
+  .page-nav a.next{ text-align:left }
+  .finding{ grid-template-columns:1fr; gap:6px }
+}

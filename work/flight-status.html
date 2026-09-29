@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Flight Status Dashboard: U.S. airline performance in Power BI — delays, cancellations, on-time rates. One filter to answer the rebooking question."/>
+  <meta property="og:title" content="Flight Status Dashboard — case study"/>
+  <meta property="og:description" content="Which airline should we rebook on? One filter, not five."/>
+  <meta property="og:type" content="article"/>
+  <title>Flight Status Dashboard — Case Study · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/flight-status.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Flight Status Dashboard</h1>
+  <p class="page-sub reveal">U.S. airline and airport performance — delays, cancellations, on-time rates. The stakeholder question was simple: <strong>"Which airline should we rebook on?"</strong> The answer needed one filter, not five.</p>
+  <div class="page-meta reveal">
+    <span>Power BI · DAX · Power Query</span><span>U.S. DOT flight data</span><span>Case study</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/Flight_Status_Dashboard.png" alt="Flight status dashboard">
+      <figcaption>On-time performance by airline, with delay causes and airport drilldown</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>When a flight cancels, a travel operation must rebook dozens of passengers — <em>on whom?</em> The answer lives in public U.S. DOT data: on-time rates by airline, delay causes, cancellation patterns by airport and season. The raw data is designed for regulators, not for dispatchers.</p>
+
+    <h2>The approach</h2>
+    <ol>
+      <li><strong>Power Query for the heavy lifting.</strong> Typed the raw extracts, unpivoted delay-cause columns, and merged airline/airport dimensions before anything reached the model.</li>
+      <li><strong>A star schema that answers the question.</strong> Flights fact table + airline, airport, and date dimensions. One DAX measure for on-time %, reused everywhere.</li>
+      <li><strong>One page, one decision.</strong> Airline ranking on top, causes underneath, airport drilldown below — no page navigation required.</li>
+    </ol>
+
+    <h2>Findings</h2>
+    <div class="finding"><div class="finding-num">1</div><div><h4>Rankings flip by context</h4><p>The "best airline" nationally is not the best at your airport in your month. The dashboard ranks within the filtered context, not a national average.</p></div></div>
+    <div class="finding"><div class="finding-num">2</div><div><h4>Cause matters more than rate</h4><p>Weather-heavy carriers look worse than they operate; controllable-delay share is the fairer comparison — so it got its own visual.</p></div></div>
+    <div class="finding"><div class="finding-num">3</div><div><h4>One filter, not five</h4><p>Route + month in, answer out. Every extra filter was tested against the rebooking question and cut if it didn't sharpen it.</p></div></div>
+
+    <h2>What I'd do differently</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Row-level context labels.</strong> A "78% on-time" number without its sample size invites over-reading. I'd add flight-count captions to every card.</p></div>
+      <div class="lesson"><p><strong>Automate the refresh.</strong> DOT data updates monthly; the pipeline should pull on schedule, not on my laptop.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Power BI, DAX, Power Query, U.S. DOT on-time data. PBIX in the repo.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="cocacola-retail.html"><span class="dir">Next case study →</span><br/><span class="t">Coca-Cola USA Retailer Analysis</span></a>
+    <a href="bike-sales.html"><span class="dir">← Previous</span><br/><span class="t">Bike Sales Analysis</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://github.com/alfredshingai/Flight_Status_Dashboard" target="_blank" rel="noopener">Repo on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

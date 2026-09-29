@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How I built Who Builds Africa: an open, source-tracked database of foreign participation in African infrastructure — schema validation, PR-reviewed data, versioned releases."/>
+  <meta property="og:title" content="Who Builds Africa — build story"/>
+  <meta property="og:description" content="A source-tracked database of foreign participation in African infrastructure — evidence over narrative."/>
+  <meta property="og:type" content="article"/>
+  <title>Who Builds Africa — Build Story · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/who-builds-africa.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Who Builds Africa <em>— build story</em></h1>
+  <p class="page-sub reveal">An open, source-tracked database documenting foreign participation in African infrastructure across time — with an interactive map as the exploration layer. <strong>Live at who-builds-africa.vercel.app.</strong></p>
+  <div class="page-meta reveal">
+    <span>2026</span><span>Python · JSON Schema · Frictionless · MapLibre · Astro</span><span>Solo build · MIT + ODbL</span>
+  </div>
+
+  <div class="prose">
+    <h2>The question</h2>
+    <p>Who finances, designs, and builds African infrastructure — and what's the evidence? The public conversation is loud and the evidence is thin. Claims about foreign involvement circulate as narrative; the underlying records — contracts, financing roles, equipment supply — sit in scattered reports, archives, and news articles, often pre-2000 and non-English.</p>
+    <p>I wanted a database that could hold the nuance: <strong>evidence over narrative.</strong></p>
+
+    <h2>What "builds" means (and doesn't)</h2>
+    <p>The project is neutral by design. A participation record may be financing, designing, constructing, engineering, supplying equipment, consulting, developing, operating, maintaining, or a joint venture — and we never imply a company built an entire project if the evidence only shows financing or supply. Every role is explicitly labelled.</p>
+
+    <h2>The product is the database</h2>
+    <p>The map is the interface people see; the real product is the structured, auditable database behind it:</p>
+    <div class="finding"><div class="finding-num">§</div><div><h4>Schema first</h4><p>JSON Schema + vocabularies + ER diagram. Missing and unknown dates are preserved explicitly — uncertainty is a field, never invented away.</p></div></div>
+    <div class="finding"><div class="finding-num">✓</div><div><h4>Validation in the pipeline</h4><p>pydantic + Frictionless validate every curated CSV. Nothing reaches a release without passing.</p></div></div>
+    <div class="finding"><div class="finding-num">§§</div><div><h4>PR-reviewed data</h4><p>Curated CSVs are the source of truth; every submission is reviewed like code. Versioned releases ship as CSV / GeoJSON / GeoPackage / SQLite.</p></div></div>
+    <div class="finding"><div class="finding-num">"</div><div><h4>Evidence per claim</h4><p>Every material claim links to a source, a verbatim passage, and an evidence-strength label. Quotes remain © publishers; used as evidence only.</p></div></div>
+
+    <h2>Decisions worth defending</h2>
+    <div class="decision-list">
+      <div class="decision"><p class="q">Why not just scrape and visualize?</p><p>A map without provenance is a rumor with cartography. The database — versioned, citable, downloadable — is what makes it scholarship instead of content.</p></div>
+      <div class="decision"><p class="q">Why pre-2000 sources?</p><p>Most datasets start where convenient APIs start. History didn't. Archived and scanned sources are in scope from day one.</p></div>
+      <div class="decision"><p class="q">Why three licenses?</p><p>Code MIT, database ODbL-1.0 (attribution + share-alike), docs CC BY 4.0. Each artifact gets the license its community expects — with citation files built in.</p></div>
+    </div>
+
+    <h2>What it taught me</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Data modeling is an editorial act.</strong> Deciding what a "participation record" is — and what uncertainty looks like — shaped everything downstream.</p></div>
+      <div class="lesson"><p><strong>Review culture applies to data.</strong> Treating curated CSVs like code, with PR review and validation gates, is how a one-person project stays trustworthy.</p></div>
+      <div class="lesson"><p><strong>Open source is governance.</strong> CONTRIBUTING, CORRECTIONS, GOVERNANCE — the boring documents are what make collaboration possible.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Python (pydantic, Frictionless), JSON Schema, Astro + Svelte + MapLibre GL JS, OpenStreetMap, Vercel, MkDocs.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="bank-churn.html"><span class="dir">Next project →</span><br/><span class="t">Bank Churn Prediction</span></a>
+    <a href="sokodata.html"><span class="dir">← Previous</span><br/><span class="t">SokoData</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://who-builds-africa.vercel.app" target="_blank" rel="noopener">Live site ↗</a> · <a href="https://github.com/alfredshingai/who_builds_africa" target="_blank" rel="noopener">Source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

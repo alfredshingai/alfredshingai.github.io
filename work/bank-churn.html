@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bank customer churn prediction: EDA → feature engineering → gradient boosting, AUC 0.868 — and the insight that matters more than the model."/>
+  <meta property="og:title" content="Bank Customer Churn Prediction — case study"/>
+  <meta property="og:description" content="AUC 0.868. But the insight is cheaper than the model."/>
+  <meta property="og:type" content="article"/>
+  <title>Bank Customer Churn — Case Study · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/bank-churn.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Bank Customer Churn Prediction</h1>
+  <p class="page-sub reveal">AUC 0.868. But the insight is <strong>cheaper than the model</strong> — the EDA alone tells a branch manager who to call.</p>
+  <div class="page-meta reveal">
+    <span>Python · Jupyter</span><span>EDA · Feature engineering · Gradient boosting</span><span>Case study</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/Bank_Customer_Churn.png" alt="Bank customer churn analysis">
+      <figcaption>Churn drivers: tenure, balance, and activity patterns</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>A retail bank loses customers silently — by the time they close the account, the relationship is already gone. <strong>Which customers are about to leave, and what would actually change their mind?</strong></p>
+
+    <h2>The pipeline</h2>
+    <p>End to end, in one notebook anyone can rerun:</p>
+    <ol>
+      <li><strong>EDA before anything.</strong> Distributions, correlations, and segment profiles first — because a model trained on misunderstood data is confidently wrong.</li>
+      <li><strong>Feature engineering.</strong> Balance-to-salary ratios, tenure bands, product-count and activity flags. The raw columns hide the behavior; the features surface it.</li>
+      <li><strong>Gradient boosting,</strong> validated properly — stratified splits, no leakage, AUC 0.868 on held-out data.</li>
+    </ol>
+
+    <h2>Findings</h2>
+    <div class="finding"><div class="finding-num">1</div><div><h4>Inactivity is the loudest signal</h4><p>Customers with dormant accounts churn at multiples of the base rate. The model leans on it; so should retention teams.</p></div></div>
+    <div class="finding"><div class="finding-num">2</div><div><h4>Tenure has a danger zone</h4><p>Early-tenure customers with high balances are the most at-risk, most valuable segment — new enough to leave, invested enough to matter.</p></div></div>
+    <div class="finding"><div class="finding-num">3</div><div><h4>The model confirms what the EDA shows</h4><p>Feature importance and segment analysis agree — which is exactly what you want. A model that surprises its own EDA is a model nobody trusts.</p></div></div>
+
+    <h2>The insight is cheaper than the model</h2>
+    <p>The punchline of this project isn't AUC 0.868 — it's that the top churn drivers are <em>actionable without any model in production</em>. A branch manager can call dormant, high-balance, early-tenure customers this week using a spreadsheet. The model's job is to rank and refine that list, not to replace the judgment.</p>
+
+    <h2>What I'd do differently</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Calibrate the probabilities.</strong> AUC ranks well, but retention budgets need "how likely, really" — next iteration: Platt scaling or isotonic calibration.</p></div>
+      <div class="lesson"><p><strong>Cost-sensitive thresholds.</strong> A false negative (lost customer) costs more than a false positive (a phone call). The threshold should reflect that, not default to 0.5.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Python, pandas, scikit-learn, gradient boosting, matplotlib/seaborn. Full notebook in the repo.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="bike-sales.html"><span class="dir">Next case study →</span><br/><span class="t">Bike Sales Analysis</span></a>
+    <a href="who-builds-africa.html"><span class="dir">← Previous</span><br/><span class="t">Who Builds Africa</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://github.com/alfredshingai/bank-churn-prediction" target="_blank" rel="noopener">Notebook on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

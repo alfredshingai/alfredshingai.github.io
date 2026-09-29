@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How I built StatLab Zim: a Streamlit statistics lab that makes introductory statistics usable — 19 tests, messy-CSV handling, and the edge cases that mattered."/>
+  <meta property="og:title" content="StatLab Zim — build story"/>
+  <meta property="og:description" content="From empty CSV edge case to 19 pytest tests: how StatLab Zim was built solo."/>
+  <meta property="og:type" content="article"/>
+  <title>StatLab Zim — Build Story · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/statlab-zim.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">StatLab Zim <em>— build story</em></h1>
+  <p class="page-sub reveal">An interactive statistics lab: upload a CSV, get descriptives, charts, and hypothesis tests with plain-language decisions. <strong>Live on Streamlit Cloud, MIT-licensed, 19 tests.</strong></p>
+  <div class="page-meta reveal">
+    <span>2025</span><span>Python · Streamlit · SciPy · Plotly</span><span>Solo build</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/StatLab_Zim.png" alt="StatLab Zim interface">
+      <figcaption>CSV upload → quality check → descriptives → 6 charts → 5 tests → export</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>Introductory statistics tools are closed, complex, or lecture-only. My classmates at UZ needed SPSS for coursework that was really just: describe this data, test that hypothesis, interpret the result. SPSS is licensed, intimidating, and teaches you nothing about the shape of your data.</p>
+    <p>The question: <strong>can a browser tab replace a stats-practical session?</strong></p>
+
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>Upload anything</strong> — messy real-world files: missing cells, duplicate rows, mixed types, dates stored as text.</li>
+      <li><strong>Data-quality check first</strong> — row/column counts, missing-value %, duplicate detection, type inference, before any statistics.</li>
+      <li><strong>13-metric numeric summary</strong> — mean, median, IQR, skew, kurtosis, CV and more, computed honestly on whatever survived the quality gate.</li>
+      <li><strong>Six interactive Plotly charts</strong> — histogram, boxplot, bar, scatter, line for dates, heatmap.</li>
+      <li><strong>Five tests with plain-language decisions</strong> — Pearson, Spearman, linear regression with trendline, Welch t-test, chi-square. Not "p = 0.032" — "the relationship is probably real."</li>
+      <li><strong>CSV/PNG exports</strong> via kaleido.</li>
+    </ul>
+
+    <h2>The hard part was not the statistics</h2>
+    <p>It was the <em>empty file with only a header</em>. On day one, <code>pandas.read_csv</code> crashed on an empty file — no rows, no columns — and my data-quality summary tried to count inferred types on an empty DataFrame. The user saw a red traceback instead of a helpful message.</p>
+    <pre><code>if type_summary.empty:
+    n_numeric = n_categorical = 0
+    # show "Header but no data rows. Visualizations will be limited."</code></pre>
+    <p>Properly is not about adding features. It's about handling the boring edge so the human on the other side feels respected.</p>
+
+    <h2>Testing before shipping</h2>
+    <p>I wrote 19 pytest tests before I felt comfortable shipping: row/col counts, missing-value percentages, duplicate detection, numeric detection, descriptive spot-checks with <code>pytest.approx</code> — and crucially, empty/invalid file handling. The suite caught a real bug where <code>is_object_dtype</code> returned False for pandas 2's new StringDtype.</p>
+
+    <h2>What it taught me</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Edge cases are the product.</strong> The 90% happy path is commodity; trust is won in the broken-file 10%.</p></div>
+      <div class="lesson"><p><strong>Plain language is a feature.</strong> Every test result ships with a decision sentence, because a p-value without context is just a number.</p></div>
+      <div class="lesson"><p><strong>Ship small, test first.</strong> 19 tests bought more confidence than any amount of manual clicking.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Python, Streamlit, pandas, SciPy, Plotly, pytest, kaleido.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="sokodata.html"><span class="dir">Next project →</span><br/><span class="t">SokoData</span></a>
+    <a href="../index.html#work"><span class="dir">← Back</span><br/><span class="t">All work</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener">StatLab Zim ↗</a> · <a href="https://github.com/alfredshingai/statlab-zim" target="_blank" rel="noopener">Source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

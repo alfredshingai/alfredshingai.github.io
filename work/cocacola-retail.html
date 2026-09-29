@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Coca-Cola USA retailer analysis: 9,648 invoices, 2022–2023 — revenue trends, brand profitability, and which retailer type moved which pack size where."/>
+  <meta property="og:title" content="Coca-Cola USA Retailer Analysis — case study"/>
+  <meta property="og:description" content="9,648 invoices. The story wasn't 'sales went up' — it was which retailer type moved which pack size where."/>
+  <meta property="og:type" content="article"/>
+  <title>Coca-Cola USA Retailer Analysis — Case Study · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/work/cocacola-retail.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../blog/">Writing</a></li>
+      <li><a href="../index.html#story">Story</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page wide">
+  <div class="page-kicker reveal"><a href="../index.html#work">← All work</a></div>
+  <h1 class="page-title reveal">Coca-Cola USA Retailer Analysis</h1>
+  <p class="page-sub reveal">9,648 retailer invoices from 2022–2023. The story wasn't "sales went up" — it was <strong>which retailer type moved which pack size where</strong>.</p>
+  <div class="page-meta reveal">
+    <span>Excel · Power Query</span><span>9,648 records</span><span>Case study</span>
+  </div>
+
+  <div class="prose">
+    <div class="case-figure reveal">
+      <img src="../images/CocaCola USA Retailer Analysis.png" alt="Coca-Cola retailer analysis">
+      <figcaption>Revenue by segment, brand profitability, and regional distribution</figcaption>
+    </div>
+
+    <h2>The question</h2>
+    <p>Two years of retailer invoices: every line an order with brand, pack size, unit price, volume, region, and retailer type. Management saw a revenue total. The useful questions were underneath: <strong>which retailer types drive which brands, in which pack sizes, in which regions?</strong></p>
+
+    <h2>The approach</h2>
+    <ol>
+      <li><strong>Power Query as the cleaning room.</strong> 9,648 rows typed, trimmed, de-duplicated, and reshaped — region names normalized, pack sizes parsed from product strings, invoice dates fixed from serials.</li>
+      <li><strong>Segment before summarizing.</strong> Revenue by retailer type × pack size × region matrix built as pivot scaffolding before any chart.</li>
+      <li><strong>One page per decision:</strong> revenue trend, brand profitability, regional distribution.</li>
+    </ol>
+
+    <h2>Findings</h2>
+    <div class="finding"><div class="finding-num">1</div><div><h4>Channel is destiny</h4><p>A handful of retailer types carried the majority of volume — but the <em>margin</em> story sat with different channels than the <em>volume</em> story. Treating "top retailers" as one block hides exactly this.</p></div></div>
+    <div class="finding"><div class="finding-num">2</div><div><h4>Pack size is regional</h4><p>Multi-pack formats concentrated in specific regions and channels. The same product line performs differently by geography — distribution, not demand, explained most of the gap.</p></div></div>
+    <div class="finding"><div class="finding-num">3</div><div><h4>The trend line hides the story</h4><p>Aggregate revenue growth was steady. Split by channel, one segment declined through 2023 while another grew — the average was two stories canceling out.</p></div></div>
+
+    <h2>What I'd do differently</h2>
+    <div class="lesson-grid">
+      <div class="lesson"><p><strong>Ask for the unit economics earlier.</strong> Without cost data, "profitability" was proxy-driven. One conversation with the stakeholder would have sharpened the whole analysis.</p></div>
+      <div class="lesson"><p><strong>Version the cleaning.</strong> I'd snapshot each Power Query stage today, so "what changed" between drafts is answerable.</p></div>
+    </div>
+
+    <hr/>
+    <p><strong>Tech stack:</strong> Excel, Power Query, pivot analysis. Workbook and documentation in the repo.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="kevin-cookie.html"><span class="dir">Next case study →</span><br/><span class="t">Kevin Cookie Company</span></a>
+    <a href="flight-status.html"><span class="dir">← Previous</span><br/><span class="t">Flight Status Dashboard</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="https://github.com/alfredshingai/CocaCola_USA_Retailer_Analysis" target="_blank" rel="noopener">Repo on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

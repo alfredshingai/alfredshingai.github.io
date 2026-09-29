@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="19 tests, empty-header edge cases, and why shipping small beats perfect planning. Lessons from building StatLab Zim solo."/>
+  <meta property="og:title" content="What building StatLab Zim taught me about “properly”"/>
+  <meta property="og:description" content="19 tests, empty-header edge cases, and why shipping small beats perfect planning."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:published_time" content="2026-09-03"/>
+  <title>What building StatLab Zim taught me about “properly” · Alfred Shingai</title>
+  <link rel="canonical" href="https://alfredshingai.github.io/blog/posts/what-building-statlab-taught-me.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../../favicon.ico"/>
+  <link rel="stylesheet" href="../../style.css"/>
+  <link rel="stylesheet" href="../../assets/site.css"/>
+  <script>
+    (function () {
+      if ((localStorage.getItem('theme') || 'dark') === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="../../index.html" class="nav-name">Alfred Shingai <span>· Data Analyst &amp; Builder</span></a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#work">Work</a></li>
+      <li><a href="../">Writing</a></li>
+      <li><a href="../../index.html#story">Story</a></li>
+      <li><a href="../../index.html#contact">Contact</a></li>
+      <li class="nav-theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </li>
+      <li><a href="mailto:tinonetsanaa@gmail.com" class="nav-email">Email me</a></li>
+    </ul>
+    <button id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="page-kicker reveal"><a href="../">← All posts</a></div>
+  <h1 class="page-title reveal">What building StatLab Zim taught me about <em>“properly”</em></h1>
+  <div class="page-meta reveal">
+    <span>2026-09-03</span><span>Career reflection</span><span>4 min read</span>
+  </div>
+
+  <div class="prose">
+    <p>I wanted to build StatLab Zim properly. Not perfectly — <em>properly</em>. There's a difference.</p>
+    <p>It's a Streamlit app for introductory statistics. Upload a CSV, get descriptives, visualizations, and hypothesis tests. Sounds simple. The hard part wasn't the statistics — it was the empty file with only a header.</p>
+
+    <h2>The first properly moment</h2>
+    <p>On day one, <code>pandas.read_csv</code> crashed on an empty file. No rows, no columns. My data-quality summary tried to count inferred types on an empty DataFrame and threw a KeyError. The user saw a red traceback instead of a helpful message.</p>
+    <p>Properly meant: an empty CSV should show <em>"Header but no data rows. Visualizations will be limited."</em> — not a stack trace. I added a guard:</p>
+    <pre><code>if type_summary.empty:
+    n_numeric = n_categorical = 0
+    # …</code></pre>
+    <p>Small change, big kindness.</p>
+    <blockquote>Properly is not about adding features. It's about handling the boring edge so the human on the other side feels respected.</blockquote>
+
+    <h2>19 tests later</h2>
+    <p>I wrote 19 pytest tests before I felt comfortable shipping: row/col counts, missing-value %, duplicate detection, numeric detection, descriptive spot-checks with <code>pytest.approx</code>, and — crucially — empty/invalid file handling. The tests caught a string-dtype bug where <code>is_object_dtype</code> returned False for pandas 2's new StringDtype.</p>
+    <p>In Harare we say <em>"Chitsva charimutsoka"</em> — what's new is in the feet; you learn by walking. The tests were the walking.</p>
+
+    <h2>Shipping beats polishing</h2>
+    <p>I could have added a database, user accounts, a dark mode. I chose light-only for the blog and a restrained palette for the app. Light is honest; you can't hide bad spacing.</p>
+    <p>StatLab Zim is live at <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener">statlab-zim.streamlit.app</a> and the code is at <a href="https://github.com/alfredshingai/statlab-zim" target="_blank" rel="noopener">github.com/alfredshingai/statlab-zim</a>. It still has rough edges — kaleido needs Chrome for PNG exports. But it handles an empty CSV gracefully. That's properly enough for today.</p>
+
+    <p>— Alfred, second coffee, probably.</p>
+  </div>
+
+  <div class="page-nav reveal">
+    <a class="next" href="lean-web-components.html"><span class="dir">Next post →</span><br/><span class="t">Lean web components</span></a>
+    <a href="../"><span class="dir">← Back</span><br/><span class="t">All posts</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Alfred Shingai · Harare</span>
+    <span class="footer-mid">§</span>
+    <span><a href="../../index.html">Home</a> · <a href="../">Writing</a></span>
+  </div>
+</footer>
+
+<script src="../../assets/main.js"></script>
+</body>
+</html>
