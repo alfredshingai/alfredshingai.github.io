@@ -20,9 +20,7 @@ work/                 Case-study pages
   flight-status.html  Flight dashboard — case study
   cocacola-retail.html    Coca-Cola — case study
   kevin-cookie.html   Kevin Cookie — case study
-blog/
-  index.html          Writing index
-  posts/*.html        Posts (static HTML, no markdown build step)
+blog posts live on Substack (https://alfredshingai.substack.com) — the site links there only.
 404.html              Not-found page
 robots.txt, sitemap.xml
 images/               Project screenshots
@@ -32,7 +30,7 @@ images/               Project screenshots
 
 - **Colors:** all tokens are CSS variables in `:root` at the top of `style.css`. Dark and light themes are defined side by side.
 - **New case study:** copy any file in `work/`, update the content, add a card to `index.html#work`, and add the URL to `sitemap.xml`.
-- **New post:** full essays are published on Substack ([Learning as I Go](https://alfredshingai.substack.com)). To feature one here, add a teaser card to `blog/index.html` and the Writing section on `index.html`, linking to the Substack URL. Only keep self-hosted posts in `blog/posts/` for pieces that are tightly tied to this site (case-study companions) — and update `sitemap.xml` when you do.
+- **New post:** write and publish on Substack ([Learning as I Go](https://alfredshingai.substack.com)). No blog lives on this site — every writing link and card points to Substack, so expanding any post opens it there. Nothing to update here when you publish.
 - Every page needs: the inline theme snippet in `<head>`, `style.css` + `assets/site.css`, and `assets/main.js` before `</body>`. Subpages adjust relative paths (`../`).
 
 ## Go live on a custom domain (.dev recommended)

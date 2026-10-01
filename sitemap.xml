@@ -9,8 +9,5 @@
   <url><loc>https://alfredshingai.dev/work/flight-status.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://alfredshingai.dev/work/cocacola-retail.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://alfredshingai.dev/work/kevin-cookie.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://alfredshingai.dev/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alfredshingai.dev/blog/posts/what-building-statlab-taught-me.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://alfredshingai.dev/blog/posts/lean-web-components.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://alfredshingai.dev/blog/posts/atomic-habits.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://alfredshingai.substack.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
