@@ -32,7 +32,7 @@ images/               Project screenshots
 
 - **Colors:** all tokens are CSS variables in `:root` at the top of `style.css`. Dark and light themes are defined side by side.
 - **New case study:** copy any file in `work/`, update the content, add a card to `index.html#work`, and add the URL to `sitemap.xml`.
-- **New post:** copy any file in `blog/posts/`, update the content, add a card to `blog/index.html` and the Writing section on the home page, and add the URL to `sitemap.xml`.
+- **New post:** full essays are published on Substack ([Learning as I Go](https://alfredshingai.substack.com)). To feature one here, add a teaser card to `blog/index.html` and the Writing section on `index.html`, linking to the Substack URL. Only keep self-hosted posts in `blog/posts/` for pieces that are tightly tied to this site (case-study companions) — and update `sitemap.xml` when you do.
 - Every page needs: the inline theme snippet in `<head>`, `style.css` + `assets/site.css`, and `assets/main.js` before `</body>`. Subpages adjust relative paths (`../`).
 
 ## Go live on a custom domain (.dev recommended)
@@ -48,6 +48,10 @@ images/               Project screenshots
 3. Wait for DNS to propagate (minutes to a few hours), then in **Settings → Pages** tick **Enforce HTTPS**.
 4. Update every `https://alfredshingai.github.io/...` canonical/OG/sitemap URL to the new domain (search the repo for `alfredshingai.github.io`).
 5. Point the old `alfred619.github.io` repo at this one: either unpublish it, or replace its index with a redirect page to the canonical site (and add `<link rel="canonical">` pointing here if it must stay up).
+
+## Writing elsewhere
+
+- Substack — https://alfredshingai.substack.com (essays; subscribe link: `/subscribe`)
 
 ## Live products linked from this site
 
