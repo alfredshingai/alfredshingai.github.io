@@ -21,6 +21,7 @@
   <link rel="icon" href="favicon.ico"/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="assets/site.css"/>
+  <link rel="stylesheet" href="assets/field-notes.css"/>
 
   <script>
     (function () {
@@ -88,6 +89,7 @@
         <strong>product</strong>: dashboards, statistical tools, and open data APIs,
         from raw export to decision-ready insight.
       </p>
+      <div class="fn-typewrap reveal" aria-live="polite"><span class="fn-type-prefix">I turn</span> <span id="fn-typed">messy CSVs</span><span class="fn-type-caret" aria-hidden="true"></span> <span class="fn-type-suffix">into answers.</span></div>
       <div class="hero-actions reveal" style="justify-content:center">
         <a href="#work" class="btn-primary">See the work</a>
         <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-outline">Try StatLab Zim ↗</a>
@@ -105,6 +107,17 @@
     <div><div class="stat-num">19</div><div class="stat-label">Pytest tests</div></div>
     <div><div class="stat-num">BSc</div><div class="stat-label">Applied Stats, UZ — Final Year</div></div>
     <div><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
+  </div>
+
+  <div class="fn-demo reveal">
+    <div class="fn-demo-top"><span class="fn-file">▦ maize_prices_raw.csv — 6 rows</span>
+      <div class="fn-toggle"><button id="fn-mess" class="active">messy</button><button id="fn-clean">cleaned ✓</button></div>
+      <span id="fn-status" class="fn-badge">4 duplicates · 3 blanks · 2 formats</span></div>
+    <div class="fn-tablewrap"><table class="fn-table">
+      <thead><tr><th>market</th><th>commodity</th><th>price</th><th>date</th><th>status</th></tr></thead>
+      <tbody id="fn-tbody"></tbody>
+    </table></div>
+    <div class="fn-foot"><div class="fn-progress"><i id="fn-bar"></i></div><span id="fn-foot">raw export → press cleaned.</span></div>
   </div>
 </header>
 
@@ -157,6 +170,21 @@
   </div>
 </section>
 
+<!-- Wrestled clean -->
+<section class="page-section narrow" id="wrestled">
+  <div class="section-label reveal">Things I've wrestled clean</div>
+  <h2 class="section-title reveal serif">It always starts messy.</h2>
+  <p class="section-lead reveal">Not a tools grid. Battle scars — each one shipped into something live.</p>
+  <div class="fn-grid">
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>Empty file, only a header</h3><p>StatLab Zim crashed on it. Now it doesn't.</p><div class="fn-before">❌ df.describe() → empty error</div><div class="fn-after">✓ graceful empty-state + guard</div></div>
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>"Harare " vs "harare"</h3><p>Same market, three spellings, broken joins.</p><div class="fn-before">❌ 486 markets → 612 "markets"</div><div class="fn-after">✓ normalized keys + dedupe ETL</div></div>
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>WFP PDFs + 12 CSV dialects</h3><p>SokoData's daily reality across Africa.</p><div class="fn-before">❌ scattered, no API, no types</div><div class="fn-after">✓ 1 catalog · 22 datasets · provenance</div></div>
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>9,648 messy retailer rows</h3><p>Coca-Cola USA invoices, mixed packs.</p><div class="fn-before">❌ "sales went up"</div><div class="fn-after">✓ which pack, which retailer, where</div></div>
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>ZiG / USD currency chaos</h3><p>Daily movers lie if you don't handle FX.</p><div class="fn-before">❌ false price spikes</div><div class="fn-after">✓ daily USD movers + CPI + FX</div></div>
+    <div class="fn-card reveal"><span class="stamp">FIXED ✓</span><h3>Weekly manual reporting</h3><p>Internship dashboards people opened.</p><div class="fn-before">❌ 10k+ rows by hand</div><div class="fn-after">✓ Power Query + DAX auto-refresh</div></div>
+  </div>
+</section>
+
 <div class="editorial-divider reveal">§</div>
 
 <!-- Work -->
@@ -179,6 +207,7 @@
       <div class="work-body">
         <p>StatLab Zim is my attempt to make introductory statistics <em>usable</em>. No SPSS, no syntax — just a CSV. It handles messy real-world files: missing cells, duplicate rows, mixed types. You get a 13-metric numeric summary, categorical frequency tables, 6 interactive Plotly charts, and 5 tests with plain-language decisions (Pearson, Spearman, regression, Welch t-test, chi-square).</p>
         <p>Built solo in Python: pandas, SciPy, Plotly, Streamlit. 19 pytest tests, graceful empty-state handling, CSV/PNG exports. The hardest part wasn't the stats — it was the <em>empty file with only a header</em> edge case.</p>
+        <div class="fn-transforms"><div class="fn-t"><b>Mess</b>Classmates stuck on SPSS, messy CSVs</div><div class="fn-t"><b>Build</b>upload → quality check → 6 charts → 5 tests</div><div class="fn-t"><b>Live</b>statlab-zim.streamlit.app · 19 pytest</div></div>
         <div class="work-tools"><span>Streamlit</span><span>Pandas</span><span>SciPy</span><span>Plotly</span><span>Pytest</span></div>
         <div class="work-links">
           <a href="https://statlab-zim.streamlit.app" target="_blank" rel="noopener noreferrer" class="work-link primary">statlab-zim.streamlit.app ↗</a>
@@ -198,6 +227,7 @@
       <div class="work-body">
         <p>What does maize cost today — in Harare, or in any of the hundreds of markets WFP publishes across Africa? The data exists, scattered across WFP, national agencies, and a dozen formats: raw CSVs and PDFs, no unified API. SokoData turns that scatter into <strong>one clean, documented, queryable API</strong> — African market prices at its core, plus a deep Zimbabwe data commons (economy, climate, demographics). 22 datasets, all open data, provenance per record.</p>
         <p>Live right now: 486 markets, 31 commodities, daily USD price movers, CPI, exchange rates, fuel, and climate series — one ETL per dataset, one catalog, and analytics hardened by the world's messiest currency history.</p>
+        <div class="fn-transforms"><div class="fn-t"><b>Mess</b>WFP + agencies, PDFs, no unified API</div><div class="fn-t"><b>Build</b>one ETL per dataset, one catalog, 22 datasets</div><div class="fn-t"><b>Live</b>486 markets · 31 commodities · USD movers</div></div>
         <div class="work-tools"><span>Python</span><span>FastAPI</span><span>Pandas</span><span>ETL</span><span>WFP · World Bank · Open-Meteo</span></div>
         <div class="work-links">
           <a href="https://sokodata.onrender.com/docs" target="_blank" rel="noopener noreferrer" class="work-link primary">Live API ↗</a>
@@ -217,6 +247,7 @@
       <div class="work-body">
         <p>An open database documenting who finances, designs, builds, and operates African infrastructure — across any period, including pre-2000 and archived sources. Neutral by design: if evidence only shows financing or equipment supply, the record says exactly that. Every material claim links to a source, a verbatim passage, and an evidence-strength label.</p>
         <p>The product is the <strong>database</strong>, not the map: JSON Schema validation with pydantic and Frictionless, PR-reviewed curated data, and versioned releases in CSV / GeoJSON / GeoPackage / SQLite. The interactive map (Astro, Svelte, MapLibre) is just the exploration layer.</p>
+        <div class="fn-transforms"><div class="fn-t"><b>Mess</b>claims without sources, map without DB</div><div class="fn-t"><b>Build</b>JSON Schema + Frictionless, PR-reviewed</div><div class="fn-t"><b>Live</b>CSV / GeoJSON / SQLite + MapLibre</div></div>
         <div class="work-tools"><span>Python</span><span>JSON Schema</span><span>Frictionless</span><span>MapLibre</span><span>Astro</span></div>
         <div class="work-links">
           <a href="https://who-builds-africa.vercel.app" target="_blank" rel="noopener noreferrer" class="work-link primary">who-builds-africa.vercel.app ↗</a>
@@ -308,6 +339,19 @@
   </div>
 </section>
 
+<!-- Method -->
+<section class="page-section narrow" id="method">
+  <div class="section-label reveal">How I operate</div>
+  <h2 class="section-title reveal serif">Ask right. Keep honest. Make obvious.</h2>
+  <p class="section-lead reveal">Tools change. The job doesn't. My loop on every messy dataset:</p>
+  <div class="fn-loop">
+    <div class="fn-step reveal"><div class="n">1.</div><h3>Ask the right question</h3><p>"Which airline rebook?" beats 5 filters. "Which pack moved where?" beats "sales went up."</p></div>
+    <div class="fn-step reveal"><div class="n">2.</div><h3>Keep the data honest</h3><p>Provenance per record. Plain-language test decisions. No false ZiG spikes.</p></div>
+    <div class="fn-step reveal"><div class="n">3.</div><h3>Make insight obvious</h3><p>Manager answers in 10 seconds, not 10 minutes. Exportable, documented, live.</p></div>
+  </div>
+  <div class="fn-repeat reveal">↻ repeat on every dataset</div>
+</section>
+
 <div class="editorial-divider reveal">§</div>
 
 <!-- Writing -->
@@ -374,6 +418,7 @@
 
   <div class="story-note reveal">
     <p>Built as an analyst first, designer second. <em>Harare, Zimbabwe — available remote or in-office.</em></p>
+    <p style="margin-top:10px;font-family:'Space Mono',monospace;font-size:12.5px;opacity:.85">fun fact: the hardest bug in StatLab wasn't stats — it was an empty file with only a header.</p>
   </div>
 </section>
 
@@ -404,6 +449,7 @@
 </footer>
 
 <script src="assets/main.js"></script>
+<script src="assets/field-notes.js"></script>
 
 </body>
 </html>
