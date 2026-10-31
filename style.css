@@ -767,6 +767,23 @@ body.has-custom-cursor a, body.has-custom-cursor button{cursor:none}
 .nav-links a.active{color:var(--cyan)}
 .nav-links a.active::after{transform:scaleX(1)}
 
+/* ---------- Backdrop scene (assets/backdrop.js) ---------- */
+
+.bg-scene,.bg-rain{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  pointer-events:none;
+}
+.bg-scene{z-index:-2;opacity:0;transition:opacity 1.4s ease}
+.bg-scene.on{opacity:1}
+.bg-rain{z-index:-1}
+.light-mode .bg-scene,.light-mode .bg-rain{display:none}
+@media(prefers-reduced-motion:reduce){
+  .bg-scene,.bg-rain{display:none}
+}
+
 /* New hero bits */
 .hero-tag.live{border-color:var(--green);color:var(--green)}
 .hero-tag.live::before{background:var(--green);box-shadow:0 0 8px rgba(16,185,129,0.6)}
