@@ -61,6 +61,7 @@ body::before{display:none}
   transition:border-color .2s,color .2s,transform .2s;
 }
 .cw-social a img{width:14px;height:14px}
+.light-mode .cw-social a img{filter:brightness(0.45) saturate(1.4)}
 .cw-social a svg{width:13px;height:13px}
 .cw-social a:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
 

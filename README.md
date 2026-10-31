@@ -5,11 +5,18 @@ One canonical site: portfolio, case studies, and writing. Built as static HTML/C
 ## Structure
 
 ```
-index.html            Home — hero, skills, selected work, writing, story, contact
-style.css             Design system + home styles (colors live in :root here)
+index.html            Home — text-first intro, work ledger, case studies,
+                      messy→clean demo, writing, story, contact
+style.css             Design system + shared chrome (colors live in :root here)
 assets/
+  home.css            Homepage layout (Craig-Weiss-style single column)
   site.css            Shared styles for subpages (case studies, blog, 404)
-  main.js             Shared JS (theme, nav, reveal, cursor, progress)
+  field-notes.css     The messy→clean demo widget
+  field-notes.js      The messy→clean demo interactions
+  backdrop.js         Animated 3D scatter-field backdrop + digit-rain
+                      page transitions (WebGL2, self-gating, no libraries)
+  main.js             Shared JS (theme, nav, reveal, cursor, progress,
+                      footer build stamp)
   cv/                 CV PDF
 work/                 Case-study pages
   statlab-zim.html    StatLab Zim — build story
@@ -29,9 +36,10 @@ images/               Project screenshots
 ## Editing
 
 - **Colors:** all tokens are CSS variables in `:root` at the top of `style.css`. Dark and light themes are defined side by side.
-- **New case study:** copy any file in `work/`, update the content, add a card to `index.html#work`, and add the URL to `sitemap.xml`.
-- **New post:** write and publish on Substack ([Learning as I Go](https://alfredshingai.substack.com)). No blog lives on this site — every writing link and card points to Substack, so expanding any post opens it there. Nothing to update here when you publish.
-- Every page needs: the inline theme snippet in `<head>`, `style.css` + `assets/site.css`, and `assets/main.js` before `</body>`. Subpages adjust relative paths (`../`).
+- **New case study:** copy any file in `work/`, update the content, add a row to the work ledger or case-studies list in `index.html`, and add the URL to `sitemap.xml`.
+- **New post:** write and publish on Substack ([Learning as I Go](https://alfredshingai.substack.com)). No blog lives on this site — every writing link points to Substack. Nothing to update here when you publish.
+- Every page needs: the inline theme snippet in `<head>`, `style.css` (+ `assets/site.css` on subpages, `assets/home.css` on the homepage), and `assets/main.js` before `</body>`. Subpages adjust relative paths (`../`).
+- **Backdrop:** `assets/backdrop.js` runs on every page but only boots on capable devices (WebGL2, ≥4 cores, ≥4 GB RAM, desktop width, dark mode, motion allowed) — everyone else just gets the plain background. Debug on a real machine with `sessionStorage.setItem('bg-force','1')` + reload; it logs what it is doing to the console when forced.
 
 ## Go live on a custom domain (.dev recommended)
 
