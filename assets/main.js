@@ -1,5 +1,13 @@
 /* Alfred Shingai — shared site JS (all pages) */
 
+/* Footer build stamp (document.lastModified → built YYYY-MM-DD) */
+(function () {
+  const el = document.getElementById('built');
+  if (!el) return;
+  const d = new Date(document.lastModified);
+  if (!isNaN(d.getTime())) el.textContent = d.toISOString().slice(0, 10);
+})();
+
 /* Theme toggle (pre-paint class is set inline in <head>) */
 (function () {
   const toggle = document.getElementById('theme-toggle');

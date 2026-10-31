@@ -1,4 +1,4 @@
-/* Field Notes interactions — messy -> cleaned demo + write-on titles */
+/* Field Notes interactions — messy -> cleaned demo */
 (function () {
   const messy = [
     ["Harare ", "Maize ", "", "2026-01-04", "blank"],
@@ -47,82 +47,4 @@
     bC.addEventListener('click', () => render(clean, 'clean'));
     render(messy, 'mess');
   }
-})();
-
-/* write-on titles: letter-by-letter when scrolled into view */
-(function () {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targets = document.querySelectorAll(
-    '.hero-headline, .section-title, .work-title, .contact-title'
-  );
-  if (!targets.length) return;
-  if (reduce) return; // leave titles static
-
-  function split(el) {
-    if (el.dataset.fnSplit) return;
-    el.dataset.fnSplit = '1';
-    el.classList.add('fn-write');
-    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-    const texts = [];
-    while (walker.nextNode()) texts.push(walker.currentNode);
-    texts.forEach((node) => {
-      const frag = document.createDocumentFragment();
-      [...node.textContent].forEach((c) => {
-        if (c === '\n' || c === '\r') return;
-        const s = document.createElement('span');
-        s.className = 'ch';
-        s.textContent = c === ' ' ? '\u00A0' : c;
-        frag.appendChild(s);
-      });
-      node.replaceWith(frag);
-    });
-    // <br> elements are preserved by the walker (element nodes untouched)
-  }
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      io.unobserve(el);
-      split(el);
-      const chars = el.querySelectorAll('.ch');
-      chars.forEach((c, i) => { c.style.animationDelay = (i * 45) + 'ms'; });
-      const caret = document.createElement('span');
-      caret.className = 'caret';
-      el.appendChild(caret);
-      setTimeout(() => caret.remove(), chars.length * 45 + 1600);
-    });
-  }, { threshold: 0.4 });
-  targets.forEach((t) => io.observe(t));
-})();
-
-/* hero typewriter: I turn ___ into answers. */
-(function () {
-  const el = document.getElementById('fn-typed');
-  if (!el) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const phrases = [
-    'messy CSVs',
-    'WFP PDFs',
-    '10k-row Excel dumps',
-    'files with only a header'
-  ];
-  if (reduce) { el.textContent = phrases[0]; return; }
-  let pi = 0, ci = phrases[0].length, deleting = true;
-  function tick() {
-    const cur = phrases[pi];
-    if (deleting) {
-      ci -= 1;
-      el.textContent = cur.slice(0, Math.max(ci, 0));
-      if (ci <= 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); return; }
-      setTimeout(tick, 28);
-    } else {
-      const next = phrases[pi];
-      ci += 1;
-      el.textContent = next.slice(0, ci);
-      if (ci >= next.length) { deleting = true; setTimeout(tick, 2100); return; }
-      setTimeout(tick, 55);
-    }
-  }
-  setTimeout(tick, 2100);
 })();

@@ -1,0 +1,163 @@
+/* ============================================================
+   Craig-Weiss-style homepage — text-first, single column.
+   Tokens & shared chrome (nav, cursor, reveal) live in style.css.
+   ============================================================ */
+
+/* The animated backdrop (assets/backdrop.js) lives behind everything;
+   the homepage drops the static grid overlay so the scene can breathe. */
+body::before{display:none}
+
+.cw{
+  max-width:720px;
+  margin:0 auto;
+  padding:128px 24px 64px;
+  position:relative;
+  z-index:1;
+}
+
+/* ---------- intro ---------- */
+.cw-id{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.cw-id img{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:block}
+.cw-id h1{font-size:40px;font-weight:700;letter-spacing:-1.5px;line-height:1}
+
+.cw-blurb{font-size:16px;line-height:1.75;color:var(--light);font-weight:300;margin-bottom:22px}
+.cw-blurb strong{color:var(--text);font-weight:600}
+
+.cw-facts{
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin-bottom:22px;
+  overflow:hidden;
+}
+.cw-fact{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:18px;
+  padding:14px 18px;
+  align-items:baseline;
+}
+.cw-fact + .cw-fact{border-top:1px solid var(--border)}
+.cw-fact > span{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--muted);
+}
+.cw-fact > p{font-size:14px;color:var(--light);line-height:1.6}
+.cw-fact > p b{color:var(--text);font-weight:600}
+.dot{
+  display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--green);margin-right:6px;
+  box-shadow:0 0 6px rgba(16,185,129,.6);
+  animation:pulse 2s infinite;
+}
+
+.cw-social{display:flex;gap:10px;flex-wrap:wrap}
+.cw-social a{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border);border-radius:8px;
+  padding:8px 13px;text-decoration:none;
+  color:var(--muted);font-family:'Space Mono',monospace;font-size:12px;
+  transition:border-color .2s,color .2s,transform .2s;
+}
+.cw-social a img{width:14px;height:14px}
+.cw-social a svg{width:13px;height:13px}
+.cw-social a:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+
+/* ---------- sections ---------- */
+.cw-sec{margin-top:72px}
+.cw-kicker{
+  display:inline-block;
+  font-family:'Space Mono',monospace;
+  font-size:12px;font-weight:700;letter-spacing:1px;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:4px 10px;
+  margin-bottom:18px;
+}
+.cw-kicker i{font-style:normal;color:var(--cyan);margin-right:6px}
+
+.cw-ledger{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.cw-row{
+  display:grid;
+  grid-template-columns:118px 1fr;
+  gap:18px;
+  padding:20px 22px;
+}
+.cw-row + .cw-row{border-top:1px solid var(--border)}
+.cw-row:hover{background:var(--cyan-dim)}
+.cw-year{
+  font-family:'Space Mono',monospace;
+  font-size:11.5px;color:var(--cyan);
+  letter-spacing:.5px;padding-top:3px;
+  white-space:nowrap;
+}
+.cw-body h3{font-size:15.5px;font-weight:700;letter-spacing:-.2px;margin-bottom:4px}
+.cw-body h3 span{color:var(--muted);font-weight:400}
+.cw-body h3 a{color:var(--text);text-decoration:none}
+.cw-body h3 a:hover{color:var(--cyan)}
+.cw-body > p{font-size:13.5px;color:var(--light);line-height:1.65;font-weight:300}
+.cw-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.cw-links a{
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--cyan);text-decoration:none;font-weight:700;
+}
+.cw-links a:hover{color:var(--green)}
+
+/* case studies — one line each */
+.cw-case{
+  display:block;
+  padding:14px 22px;
+  text-decoration:none;
+}
+.cw-case + .cw-case{border-top:1px solid var(--border)}
+.cw-case:hover{background:var(--cyan-dim)}
+.cw-case h3{
+  display:flex;align-items:baseline;gap:10px;
+  font-size:14.5px;font-weight:700;color:var(--text);
+  margin:0;letter-spacing:-.2px;
+}
+.cw-case h3 em{font-style:normal;font-weight:400;color:var(--muted);font-size:13.5px;flex:1;min-width:0}
+.cw-case h3 i{font-style:normal;color:var(--cyan);font-family:'Space Mono',monospace;transition:transform .2s}
+.cw-case:hover h3{color:var(--cyan)}
+.cw-case:hover h3 i{transform:translateX(4px)}
+
+/* writing / story / contact prose */
+.cw-prose{font-size:15px;line-height:1.75;color:var(--light);font-weight:300}
+.cw-prose strong{color:var(--text);font-weight:600}
+.cw-prose a{color:var(--cyan);text-decoration:none}
+.cw-prose a:hover{text-decoration:underline}
+.cw-mono{
+  font-family:'Space Mono',monospace;
+  font-size:12.5px;color:var(--muted);margin-top:14px;
+}
+
+/* ---------- footer ---------- */
+.cw-footer{
+  border-top:1px solid var(--border);
+  margin-top:88px;
+  padding:22px 24px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);
+  position:relative;z-index:1;
+}
+.cw-footer a{color:var(--muted);text-decoration:none}
+.cw-footer a:hover{color:var(--cyan)}
+
+/* ---------- responsive ---------- */
+@media(max-width:700px){
+  .cw{padding:104px 20px 40px}
+  .cw-id h1{font-size:32px}
+  .cw-row{grid-template-columns:1fr;gap:6px;padding:16px 18px}
+  .cw-year{padding-top:0}
+  .cw-fact{grid-template-columns:1fr;gap:4px;padding:12px 16px}
+  .cw-case h3{flex-wrap:wrap}
+  .cw-sec{margin-top:56px}
+  .cw-footer{margin-top:64px;justify-content:center;text-align:center}
+}
