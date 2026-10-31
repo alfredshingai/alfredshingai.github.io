@@ -63,4 +63,5 @@ images/               Project screenshots
 
 - StatLab Zim — https://statlab-zim.streamlit.app
 - SokoData — https://sokodata.onrender.com (docs at `/docs`)
+- Crisis Baseline Kit — https://alfredshingai.dev/crisis-baseline-kit (live map; code at github.com/alfredshingai/crisis-baseline-kit)
 - Who Builds Africa — https://who-builds-africa.vercel.app
