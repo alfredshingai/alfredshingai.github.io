@@ -131,6 +131,7 @@ body::before{display:none}
 
 /* writing / story / contact prose */
 .cw-prose{font-size:15px;line-height:1.75;color:var(--light);font-weight:300}
+.cw-prose + .cw-prose{margin-top:14px}
 .cw-prose strong{color:var(--text);font-weight:600}
 .cw-prose a{color:var(--cyan);text-decoration:none}
 .cw-prose a:hover{text-decoration:underline}
